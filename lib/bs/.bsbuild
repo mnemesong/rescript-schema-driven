@@ -1,8 +1,7 @@
-12
+11
 SchemaDriven
 SchemaDrivenInt
 SchemaDrivenBool
-SchemaDrivenUnit
 SchemaDrivenFloat
 SchemaDrivenEngine
 SchemaDrivenModule
@@ -12,5 +11,11 @@ SchemaDrivenString
 SchemaDrivenPrimitive
 SchemaDrivenNamesCorrector
 src	
-1
-0
+1
+4
+SchemeDrivenIntTest
+SchemeDrivenBoolTest
+SchemeDrivenFloatTest
+SchemeDrivenStringTest
+test-src	
+1
