@@ -47,12 +47,8 @@ o SchemaDrivenString.cmt : cp ..\bs\src\SchemaDrivenString.cmt
 o SchemaDrivenString.res : cp ..\..\src\SchemaDrivenString.res
 o SchemaDrivenString.resi : cp ..\..\src\SchemaDrivenString.resi
 o SchemaDrivenString.cmti : cp ..\bs\src\SchemaDrivenString.cmti
-o SchemaDrivenPrimitive.cmi : cp ..\bs\src\SchemaDrivenPrimitive.cmi
-o SchemaDrivenPrimitive.cmj : cp ..\bs\src\SchemaDrivenPrimitive.cmj
-o SchemaDrivenPrimitive.cmt : cp ..\bs\src\SchemaDrivenPrimitive.cmt
-o SchemaDrivenPrimitive.res : cp ..\..\src\SchemaDrivenPrimitive.res
 o SchemaDrivenNamesCorrector.cmi : cp ..\bs\src\SchemaDrivenNamesCorrector.cmi
 o SchemaDrivenNamesCorrector.cmj : cp ..\bs\src\SchemaDrivenNamesCorrector.cmj
 o SchemaDrivenNamesCorrector.cmt : cp ..\bs\src\SchemaDrivenNamesCorrector.cmt
 o SchemaDrivenNamesCorrector.res : cp ..\..\src\SchemaDrivenNamesCorrector.res
-build install.stamp : touch SchemaDriven.cmi SchemaDriven.cmj SchemaDrivenInt.cmi SchemaDrivenInt.cmj SchemaDrivenBool.cmi SchemaDrivenBool.cmj SchemaDrivenFloat.cmi SchemaDrivenFloat.cmj SchemaDrivenEngine.cmi SchemaDrivenEngine.cmj SchemaDrivenModule.cmi SchemaDrivenModule.cmj SchemaDrivenOption.cmi SchemaDrivenOption.cmj SchemaDrivenPlugin.cmi SchemaDrivenPlugin.cmj SchemaDrivenString.cmi SchemaDrivenString.cmj SchemaDrivenPrimitive.cmi SchemaDrivenPrimitive.cmj SchemaDrivenNamesCorrector.cmi SchemaDrivenNamesCorrector.cmj 
+build install.stamp : touch SchemaDriven.cmi SchemaDriven.cmj SchemaDrivenInt.cmi SchemaDrivenInt.cmj SchemaDrivenBool.cmi SchemaDrivenBool.cmj SchemaDrivenFloat.cmi SchemaDrivenFloat.cmj SchemaDrivenEngine.cmi SchemaDrivenEngine.cmj SchemaDrivenModule.cmi SchemaDrivenModule.cmj SchemaDrivenOption.cmi SchemaDrivenOption.cmj SchemaDrivenPlugin.cmi SchemaDrivenPlugin.cmj SchemaDrivenString.cmi SchemaDrivenString.cmj SchemaDrivenNamesCorrector.cmi SchemaDrivenNamesCorrector.cmj 

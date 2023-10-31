@@ -4,31 +4,34 @@ g_finger := D:\rescript-projects\rescript-schema-driven\node_modules\rescript-st
 g_finger := D:\rescript-projects\rescript-schema-driven\node_modules\rescript-mocha\lib\ocaml\install.stamp
 rule astj
   command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe"  -bs-v 10.1.4 -open RescriptStruct -absname -bs-ast -o $out $i
-o test-src\SchemeDrivenIntTest.ast : astj ..\..\test-src\SchemeDrivenIntTest.res
+o test-src\SchemaDrivenIntTest.ast : astj ..\..\test-src\SchemaDrivenIntTest.res
 rule deps_dev
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash caf26522e1f982ed05d5cc7bbcd2327b $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash 82e97393c78b0d15db5a73688d4733d8 $in
   restat = 1
-o test-src\SchemeDrivenIntTest.d : deps_dev test-src\SchemeDrivenIntTest.ast
+o test-src\SchemaDrivenIntTest.d : deps_dev test-src\SchemaDrivenIntTest.ast
 rule mij_dev
   command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe" -I test-src -I src -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-result-exn\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-struct\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-mocha\lib\ocaml" -open RescriptStruct  -bs-package-name rescript-schema-driven -bs-package-output commonjs:lib\js\$in_d:.bs.js -bs-v $g_finger $i
   dyndep = 1
   restat = 1
-o test-src\SchemeDrivenIntTest.cmj test-src\SchemeDrivenIntTest.cmi ..\js\test-src\SchemeDrivenIntTest.bs.js : mij_dev test-src\SchemeDrivenIntTest.ast
-o test-src\SchemeDrivenBoolTest.ast : astj ..\..\test-src\SchemeDrivenBoolTest.res
-o test-src\SchemeDrivenBoolTest.d : deps_dev test-src\SchemeDrivenBoolTest.ast
-o test-src\SchemeDrivenBoolTest.cmj test-src\SchemeDrivenBoolTest.cmi ..\js\test-src\SchemeDrivenBoolTest.bs.js : mij_dev test-src\SchemeDrivenBoolTest.ast
-o test-src\SchemeDrivenFloatTest.ast : astj ..\..\test-src\SchemeDrivenFloatTest.res
-o test-src\SchemeDrivenFloatTest.d : deps_dev test-src\SchemeDrivenFloatTest.ast
-o test-src\SchemeDrivenFloatTest.cmj test-src\SchemeDrivenFloatTest.cmi ..\js\test-src\SchemeDrivenFloatTest.bs.js : mij_dev test-src\SchemeDrivenFloatTest.ast
-o test-src\SchemeDrivenStringTest.ast : astj ..\..\test-src\SchemeDrivenStringTest.res
-o test-src\SchemeDrivenStringTest.d : deps_dev test-src\SchemeDrivenStringTest.ast
-o test-src\SchemeDrivenStringTest.cmj test-src\SchemeDrivenStringTest.cmi ..\js\test-src\SchemeDrivenStringTest.bs.js : mij_dev test-src\SchemeDrivenStringTest.ast
+o test-src\SchemaDrivenIntTest.cmj test-src\SchemaDrivenIntTest.cmi ..\js\test-src\SchemaDrivenIntTest.bs.js : mij_dev test-src\SchemaDrivenIntTest.ast
+o test-src\SchemaDrivenBoolTest.ast : astj ..\..\test-src\SchemaDrivenBoolTest.res
+o test-src\SchemaDrivenBoolTest.d : deps_dev test-src\SchemaDrivenBoolTest.ast
+o test-src\SchemaDrivenBoolTest.cmj test-src\SchemaDrivenBoolTest.cmi ..\js\test-src\SchemaDrivenBoolTest.bs.js : mij_dev test-src\SchemaDrivenBoolTest.ast
+o test-src\SchemaDrivenFloatTest.ast : astj ..\..\test-src\SchemaDrivenFloatTest.res
+o test-src\SchemaDrivenFloatTest.d : deps_dev test-src\SchemaDrivenFloatTest.ast
+o test-src\SchemaDrivenFloatTest.cmj test-src\SchemaDrivenFloatTest.cmi ..\js\test-src\SchemaDrivenFloatTest.bs.js : mij_dev test-src\SchemaDrivenFloatTest.ast
+o test-src\SchemaDrivenModuleTest.ast : astj ..\..\test-src\SchemaDrivenModuleTest.res
+o test-src\SchemaDrivenModuleTest.d : deps_dev test-src\SchemaDrivenModuleTest.ast
+o test-src\SchemaDrivenModuleTest.cmj test-src\SchemaDrivenModuleTest.cmi ..\js\test-src\SchemaDrivenModuleTest.bs.js : mij_dev test-src\SchemaDrivenModuleTest.ast
+o test-src\SchemaDrivenStringTest.ast : astj ..\..\test-src\SchemaDrivenStringTest.res
+o test-src\SchemaDrivenStringTest.d : deps_dev test-src\SchemaDrivenStringTest.ast
+o test-src\SchemaDrivenStringTest.cmj test-src\SchemaDrivenStringTest.cmi ..\js\test-src\SchemaDrivenStringTest.bs.js : mij_dev test-src\SchemaDrivenStringTest.ast
 o test-src\SchemaDrivenNamesCorrectorTest.ast : astj ..\..\test-src\SchemaDrivenNamesCorrectorTest.res
 o test-src\SchemaDrivenNamesCorrectorTest.d : deps_dev test-src\SchemaDrivenNamesCorrectorTest.ast
 o test-src\SchemaDrivenNamesCorrectorTest.cmj test-src\SchemaDrivenNamesCorrectorTest.cmi ..\js\test-src\SchemaDrivenNamesCorrectorTest.bs.js : mij_dev test-src\SchemaDrivenNamesCorrectorTest.ast
 o src\SchemaDriven.ast : astj ..\..\src\SchemaDriven.res
 rule deps
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash caf26522e1f982ed05d5cc7bbcd2327b $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash 82e97393c78b0d15db5a73688d4733d8 $in
   restat = 1
 o src\SchemaDriven.d : deps src\SchemaDriven.ast
 rule mij
@@ -76,9 +79,6 @@ o src\SchemaDrivenString.d : deps src\SchemaDrivenString.ast src\SchemaDrivenStr
 o src\SchemaDrivenString.iast : astj ..\..\src\SchemaDrivenString.resi
 o src\SchemaDrivenString.cmi : mi src\SchemaDrivenString.iast
 o src\SchemaDrivenString.cmj ..\js\src\SchemaDrivenString.bs.js : mj src\SchemaDrivenString.ast src\SchemaDrivenString.cmi
-o src\SchemaDrivenPrimitive.ast : astj ..\..\src\SchemaDrivenPrimitive.res
-o src\SchemaDrivenPrimitive.d : deps src\SchemaDrivenPrimitive.ast
-o src\SchemaDrivenPrimitive.cmj src\SchemaDrivenPrimitive.cmi ..\js\src\SchemaDrivenPrimitive.bs.js : mij src\SchemaDrivenPrimitive.ast
 o src\SchemaDrivenNamesCorrector.ast : astj ..\..\src\SchemaDrivenNamesCorrector.res
 o src\SchemaDrivenNamesCorrector.d : deps src\SchemaDrivenNamesCorrector.ast
 o src\SchemaDrivenNamesCorrector.cmj src\SchemaDrivenNamesCorrector.cmi ..\js\src\SchemaDrivenNamesCorrector.bs.js : mij src\SchemaDrivenNamesCorrector.ast
