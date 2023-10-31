@@ -6,7 +6,7 @@ rule astj
   command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe"  -bs-v 10.1.4 -open RescriptStruct -absname -bs-ast -o $out $i
 o test-src\SchemaDrivenIntTest.ast : astj ..\..\test-src\SchemaDrivenIntTest.res
 rule deps_dev
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash 82e97393c78b0d15db5a73688d4733d8 $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash 41625783fda44945a1e5ad73f7e00c39 $in
   restat = 1
 o test-src\SchemaDrivenIntTest.d : deps_dev test-src\SchemaDrivenIntTest.ast
 rule mij_dev
@@ -31,7 +31,7 @@ o test-src\SchemaDrivenNamesCorrectorTest.d : deps_dev test-src\SchemaDrivenName
 o test-src\SchemaDrivenNamesCorrectorTest.cmj test-src\SchemaDrivenNamesCorrectorTest.cmi ..\js\test-src\SchemaDrivenNamesCorrectorTest.bs.js : mij_dev test-src\SchemaDrivenNamesCorrectorTest.ast
 o src\SchemaDriven.ast : astj ..\..\src\SchemaDriven.res
 rule deps
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash 82e97393c78b0d15db5a73688d4733d8 $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash 41625783fda44945a1e5ad73f7e00c39 $in
   restat = 1
 o src\SchemaDriven.d : deps src\SchemaDriven.ast
 rule mij
@@ -82,3 +82,6 @@ o src\SchemaDrivenString.cmj ..\js\src\SchemaDrivenString.bs.js : mj src\SchemaD
 o src\SchemaDrivenNamesCorrector.ast : astj ..\..\src\SchemaDrivenNamesCorrector.res
 o src\SchemaDrivenNamesCorrector.d : deps src\SchemaDrivenNamesCorrector.ast
 o src\SchemaDrivenNamesCorrector.cmj src\SchemaDrivenNamesCorrector.cmi ..\js\src\SchemaDrivenNamesCorrector.bs.js : mij src\SchemaDrivenNamesCorrector.ast
+o src\SchemaDrivenUnexpectedFilesStrategy.ast : astj ..\..\src\SchemaDrivenUnexpectedFilesStrategy.res
+o src\SchemaDrivenUnexpectedFilesStrategy.d : deps src\SchemaDrivenUnexpectedFilesStrategy.ast
+o src\SchemaDrivenUnexpectedFilesStrategy.cmj src\SchemaDrivenUnexpectedFilesStrategy.cmi ..\js\src\SchemaDrivenUnexpectedFilesStrategy.bs.js : mij src\SchemaDrivenUnexpectedFilesStrategy.ast

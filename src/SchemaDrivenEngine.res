@@ -1,16 +1,29 @@
 open SchemaDrivenPlugin
+open SchemaDrivenUnexpectedFilesStrategy
 open Belt
 
 type schemaDrivenEngine
 
-let def: (string, array<schemaDrivenPlugin>) => schemaDrivenEngine = %raw(`
-function (path, plugins) {
-  return {
-    path: path,
-    plugins: plugins
-  };
+let def = (
+  dir: string,
+  plugins: array<schemaDrivenPlugin>,
+  unexpectedFilesStrategy: unexpectedFilesStrategy,
+): result<schemaDrivenEngine, exn> => {
+  let initScheme: (string, array<schemaDrivenPlugin>, bool) => schemaDrivenEngine = %raw(`
+  function (path, plugins, removeOnMatch) {
+    return {
+      path: path,
+      plugins: plugins,
+      removeOnMatch: removeOnMatch
+    };
+  }
+  `)
+  let result = switch unexpectedFilesStrategy {
+  | RemoveAllFilesFromDir => cleanDirectory(dir)
+  | _ => Ok()
+  }
+  Result.map(result, _ => initScheme(dir, plugins, removeOnMatch(unexpectedFilesStrategy)))
 }
-`)
 
 let path: schemaDrivenEngine => string = %raw(`
 function (dir) {
@@ -24,23 +37,11 @@ function (dir) {
 }
 `)
 
-let cleanDirectory = (eng: schemaDrivenEngine): result<unit, exn> => {
-  let clean: string => unit = %raw(`
-  function (directory) {
-    const fs = require("fs");
-    const path = require("path");
-    fs.readdir(directory, (err, files) => {
-      if (err) throw err;
-      for (const file of files) {
-        fs.unlink(path.join(directory, file), (err) => {
-          if (err) throw err;
-        });
-      }
-    });
-  }
-  `)
-  ResultExn.tryExec(() => clean(eng->path))
+let isRemoveOnMatch: schemaDrivenEngine => bool = %raw(`
+function (dir) {
+  return dir.removeOnMatch;
 }
+`)
 
 let printModule = (eng: schemaDrivenEngine, moduleName: string, code: string): result<
   SchemaDrivenModule.schemaDrivenModule,
@@ -51,15 +52,12 @@ let printModule = (eng: schemaDrivenEngine, moduleName: string, code: string): r
     return require("path").resolve(...parts);
   }
   `)
-  let writeFileSync: (string, string) => unit = %raw(`
-  function (file, data) {
-    return require("fs").writeFileSync(file, data);
-  }
-  `)
   let moduleName' = SchemaDrivenNamesCorrector.modifyModuleName(moduleName)
   let moduleFilePath = ResultExn.tryExec(() => resolvePath([eng->path, moduleName' ++ ".res"]))
   let code' = code ++ eng->plugins->Array.map(p => p.moduleBody)->Js.Array2.joinWith("\n\n")
   let result =
-    moduleFilePath->ResultExn.flatMap(p => ResultExn.tryExec(() => writeFileSync(p, code')))
+    moduleFilePath->ResultExn.flatMap(p =>
+      ResultExn.tryExec(() => writeFileSync(p, code', isRemoveOnMatch(eng)))
+    )
   ResultExn.map(result, _ => moduleName'->SchemaDrivenModule.def)
 }

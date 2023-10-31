@@ -51,4 +51,8 @@ o SchemaDrivenNamesCorrector.cmi : cp ..\bs\src\SchemaDrivenNamesCorrector.cmi
 o SchemaDrivenNamesCorrector.cmj : cp ..\bs\src\SchemaDrivenNamesCorrector.cmj
 o SchemaDrivenNamesCorrector.cmt : cp ..\bs\src\SchemaDrivenNamesCorrector.cmt
 o SchemaDrivenNamesCorrector.res : cp ..\..\src\SchemaDrivenNamesCorrector.res
-build install.stamp : touch SchemaDriven.cmi SchemaDriven.cmj SchemaDrivenInt.cmi SchemaDrivenInt.cmj SchemaDrivenBool.cmi SchemaDrivenBool.cmj SchemaDrivenFloat.cmi SchemaDrivenFloat.cmj SchemaDrivenEngine.cmi SchemaDrivenEngine.cmj SchemaDrivenModule.cmi SchemaDrivenModule.cmj SchemaDrivenOption.cmi SchemaDrivenOption.cmj SchemaDrivenPlugin.cmi SchemaDrivenPlugin.cmj SchemaDrivenString.cmi SchemaDrivenString.cmj SchemaDrivenNamesCorrector.cmi SchemaDrivenNamesCorrector.cmj 
+o SchemaDrivenUnexpectedFilesStrategy.cmi : cp ..\bs\src\SchemaDrivenUnexpectedFilesStrategy.cmi
+o SchemaDrivenUnexpectedFilesStrategy.cmj : cp ..\bs\src\SchemaDrivenUnexpectedFilesStrategy.cmj
+o SchemaDrivenUnexpectedFilesStrategy.cmt : cp ..\bs\src\SchemaDrivenUnexpectedFilesStrategy.cmt
+o SchemaDrivenUnexpectedFilesStrategy.res : cp ..\..\src\SchemaDrivenUnexpectedFilesStrategy.res
+build install.stamp : touch SchemaDriven.cmi SchemaDriven.cmj SchemaDrivenInt.cmi SchemaDrivenInt.cmj SchemaDrivenBool.cmi SchemaDrivenBool.cmj SchemaDrivenFloat.cmi SchemaDrivenFloat.cmj SchemaDrivenEngine.cmi SchemaDrivenEngine.cmj SchemaDrivenModule.cmi SchemaDrivenModule.cmj SchemaDrivenOption.cmi SchemaDrivenOption.cmj SchemaDrivenPlugin.cmi SchemaDrivenPlugin.cmj SchemaDrivenString.cmi SchemaDrivenString.cmj SchemaDrivenNamesCorrector.cmi SchemaDrivenNamesCorrector.cmj SchemaDrivenUnexpectedFilesStrategy.cmi SchemaDrivenUnexpectedFilesStrategy.cmj 
