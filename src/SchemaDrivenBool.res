@@ -1,3 +1,3 @@
 type t = bool
 
-let struct: unit => S.t<bool> = S.bool
+let struct: S.t<bool> = S.bool()

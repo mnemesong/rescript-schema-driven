@@ -1,6 +1,6 @@
 type schemaDrivenModule
 
-let def: (string, string, string) => schemaDrivenModule = %raw(`
+let def: string => schemaDrivenModule = %raw(`
 function (moduleName) {
   return {
     module: moduleName
@@ -17,5 +17,5 @@ function (typeRef) {
 module type SchemaDrivenModule = {
   type t
 
-  let struct: unit => S.t<t>
+  let struct: S.t<t>
 }

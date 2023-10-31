@@ -1,3 +1,3 @@
 type t = float
 
-let struct: unit => S.t<float> = S.float
+let struct: S.t<float> = S.float()

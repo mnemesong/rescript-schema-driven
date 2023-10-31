@@ -1,3 +1,3 @@
 type t = string
 
-let struct: unit => S.t<string> = S.string
+let struct: S.t<string> = S.string()

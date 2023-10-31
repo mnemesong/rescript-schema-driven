@@ -1,3 +1,3 @@
 type t = int
 
-let struct: unit => S.t<int> = S.int
+let struct: S.t<int> = S.int()
