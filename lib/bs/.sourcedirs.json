@@ -1,0 +1,1 @@
+{ "dirs" : [ "src" ] , "pkgs" : [ [ "rescript-struct" , "D:\\rescript-projects\\rescript-schema-driven\\node_modules\\rescript-struct" ] , [ "rescript-mocha" , "D:\\rescript-projects\\rescript-schema-driven\\node_modules\\rescript-mocha" ] , [ "rescript-result-exn" , "D:\\rescript-projects\\rescript-schema-driven\\node_modules\\rescript-result-exn" ] ] , "generated" : [] }

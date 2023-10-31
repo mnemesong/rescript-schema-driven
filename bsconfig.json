@@ -1,0 +1,24 @@
+{
+  "name": "rescript-schema-driven",
+  "sources": [
+    {
+      "dir": "src"
+    }
+  ],
+  "package-specs": [
+    {
+      "module": "commonjs"
+    }
+  ],
+  "suffix": ".bs.js",
+  "bs-dependencies": [
+    "rescript-result-exn",
+    "rescript-struct"
+  ],
+  "bsc-flags": [
+    "-open RescriptStruct"
+  ],
+  "bs-dev-dependencies": [
+    "rescript-mocha"
+  ]
+}

@@ -1,0 +1,55 @@
+rescript = 1
+g_finger := D:\rescript-projects\rescript-schema-driven\node_modules\rescript-result-exn\lib\ocaml\install.stamp
+g_finger := D:\rescript-projects\rescript-schema-driven\node_modules\rescript-struct\lib\ocaml\install.stamp
+g_finger := D:\rescript-projects\rescript-schema-driven\node_modules\rescript-mocha\lib\ocaml\install.stamp
+rule astj
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe"  -bs-v 10.1.4 -open RescriptStruct -absname -bs-ast -o $out $i
+o src\SchemaDsl.ast : astj ..\..\src\SchemaDsl.res
+rule deps
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash d34447a96e440fb272b67cedd60bf4d0 $in
+  restat = 1
+o src\SchemaDsl.d : deps src\SchemaDsl.ast
+rule mij
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe" -I src -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-result-exn\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-struct\lib\ocaml" -open RescriptStruct  -bs-package-name rescript-schema-driven -bs-package-output commonjs:lib\js\$in_d:.bs.js -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o src\SchemaDsl.cmj src\SchemaDsl.cmi ..\js\src\SchemaDsl.bs.js : mij src\SchemaDsl.ast
+o src\SchemaDrivenInt.ast : astj ..\..\src\SchemaDrivenInt.res
+o src\SchemaDrivenInt.d : deps src\SchemaDrivenInt.ast src\SchemaDrivenInt.iast
+o src\SchemaDrivenInt.iast : astj ..\..\src\SchemaDrivenInt.resi
+rule mi
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe" -I src -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-result-exn\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-struct\lib\ocaml" -open RescriptStruct  -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o src\SchemaDrivenInt.cmi : mi src\SchemaDrivenInt.iast
+rule mj
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe" -bs-read-cmi -I src -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-result-exn\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-struct\lib\ocaml" -open RescriptStruct  -bs-package-name rescript-schema-driven -bs-package-output commonjs:lib\js\$in_d:.bs.js -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o src\SchemaDrivenInt.cmj ..\js\src\SchemaDrivenInt.bs.js : mj src\SchemaDrivenInt.ast src\SchemaDrivenInt.cmi
+o src\SchemaDrivenBool.ast : astj ..\..\src\SchemaDrivenBool.res
+o src\SchemaDrivenBool.d : deps src\SchemaDrivenBool.ast src\SchemaDrivenBool.iast
+o src\SchemaDrivenBool.iast : astj ..\..\src\SchemaDrivenBool.resi
+o src\SchemaDrivenBool.cmi : mi src\SchemaDrivenBool.iast
+o src\SchemaDrivenBool.cmj ..\js\src\SchemaDrivenBool.bs.js : mj src\SchemaDrivenBool.ast src\SchemaDrivenBool.cmi
+o src\SchemaDrivenUnit.ast : astj ..\..\src\SchemaDrivenUnit.res
+o src\SchemaDrivenUnit.d : deps src\SchemaDrivenUnit.ast src\SchemaDrivenUnit.iast
+o src\SchemaDrivenUnit.iast : astj ..\..\src\SchemaDrivenUnit.resi
+o src\SchemaDrivenUnit.cmi : mi src\SchemaDrivenUnit.iast
+o src\SchemaDrivenUnit.cmj ..\js\src\SchemaDrivenUnit.bs.js : mj src\SchemaDrivenUnit.ast src\SchemaDrivenUnit.cmi
+o src\SchemaDrivenFloat.ast : astj ..\..\src\SchemaDrivenFloat.res
+o src\SchemaDrivenFloat.d : deps src\SchemaDrivenFloat.ast src\SchemaDrivenFloat.iast
+o src\SchemaDrivenFloat.iast : astj ..\..\src\SchemaDrivenFloat.resi
+o src\SchemaDrivenFloat.cmi : mi src\SchemaDrivenFloat.iast
+o src\SchemaDrivenFloat.cmj ..\js\src\SchemaDrivenFloat.bs.js : mj src\SchemaDrivenFloat.ast src\SchemaDrivenFloat.cmi
+o src\SchemaDrivenModule.ast : astj ..\..\src\SchemaDrivenModule.res
+o src\SchemaDrivenModule.d : deps src\SchemaDrivenModule.ast
+o src\SchemaDrivenModule.cmj src\SchemaDrivenModule.cmi ..\js\src\SchemaDrivenModule.bs.js : mij src\SchemaDrivenModule.ast
+o src\SchemaDrivenString.ast : astj ..\..\src\SchemaDrivenString.res
+o src\SchemaDrivenString.d : deps src\SchemaDrivenString.ast src\SchemaDrivenString.iast
+o src\SchemaDrivenString.iast : astj ..\..\src\SchemaDrivenString.resi
+o src\SchemaDrivenString.cmi : mi src\SchemaDrivenString.iast
+o src\SchemaDrivenString.cmj ..\js\src\SchemaDrivenString.bs.js : mj src\SchemaDrivenString.ast src\SchemaDrivenString.cmi
+o src\SchemaDrivenPrimitive.ast : astj ..\..\src\SchemaDrivenPrimitive.res
+o src\SchemaDrivenPrimitive.d : deps src\SchemaDrivenPrimitive.ast
+o src\SchemaDrivenPrimitive.cmj src\SchemaDrivenPrimitive.cmi ..\js\src\SchemaDrivenPrimitive.bs.js : mij src\SchemaDrivenPrimitive.ast

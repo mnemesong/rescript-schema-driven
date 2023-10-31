@@ -1,0 +1,48 @@
+rescript = 1
+rule cp
+  command = cmd.exe /C copy /Y $i $out >NUL
+rule touch
+ command = cmd.exe /C type nul >>$out & copy $out+,, >NUL
+o SchemaDsl.cmi : cp ..\bs\src\SchemaDsl.cmi
+o SchemaDsl.cmj : cp ..\bs\src\SchemaDsl.cmj
+o SchemaDsl.cmt : cp ..\bs\src\SchemaDsl.cmt
+o SchemaDsl.res : cp ..\..\src\SchemaDsl.res
+o SchemaDrivenInt.cmi : cp ..\bs\src\SchemaDrivenInt.cmi
+o SchemaDrivenInt.cmj : cp ..\bs\src\SchemaDrivenInt.cmj
+o SchemaDrivenInt.cmt : cp ..\bs\src\SchemaDrivenInt.cmt
+o SchemaDrivenInt.res : cp ..\..\src\SchemaDrivenInt.res
+o SchemaDrivenInt.resi : cp ..\..\src\SchemaDrivenInt.resi
+o SchemaDrivenInt.cmti : cp ..\bs\src\SchemaDrivenInt.cmti
+o SchemaDrivenBool.cmi : cp ..\bs\src\SchemaDrivenBool.cmi
+o SchemaDrivenBool.cmj : cp ..\bs\src\SchemaDrivenBool.cmj
+o SchemaDrivenBool.cmt : cp ..\bs\src\SchemaDrivenBool.cmt
+o SchemaDrivenBool.res : cp ..\..\src\SchemaDrivenBool.res
+o SchemaDrivenBool.resi : cp ..\..\src\SchemaDrivenBool.resi
+o SchemaDrivenBool.cmti : cp ..\bs\src\SchemaDrivenBool.cmti
+o SchemaDrivenUnit.cmi : cp ..\bs\src\SchemaDrivenUnit.cmi
+o SchemaDrivenUnit.cmj : cp ..\bs\src\SchemaDrivenUnit.cmj
+o SchemaDrivenUnit.cmt : cp ..\bs\src\SchemaDrivenUnit.cmt
+o SchemaDrivenUnit.res : cp ..\..\src\SchemaDrivenUnit.res
+o SchemaDrivenUnit.resi : cp ..\..\src\SchemaDrivenUnit.resi
+o SchemaDrivenUnit.cmti : cp ..\bs\src\SchemaDrivenUnit.cmti
+o SchemaDrivenFloat.cmi : cp ..\bs\src\SchemaDrivenFloat.cmi
+o SchemaDrivenFloat.cmj : cp ..\bs\src\SchemaDrivenFloat.cmj
+o SchemaDrivenFloat.cmt : cp ..\bs\src\SchemaDrivenFloat.cmt
+o SchemaDrivenFloat.res : cp ..\..\src\SchemaDrivenFloat.res
+o SchemaDrivenFloat.resi : cp ..\..\src\SchemaDrivenFloat.resi
+o SchemaDrivenFloat.cmti : cp ..\bs\src\SchemaDrivenFloat.cmti
+o SchemaDrivenModule.cmi : cp ..\bs\src\SchemaDrivenModule.cmi
+o SchemaDrivenModule.cmj : cp ..\bs\src\SchemaDrivenModule.cmj
+o SchemaDrivenModule.cmt : cp ..\bs\src\SchemaDrivenModule.cmt
+o SchemaDrivenModule.res : cp ..\..\src\SchemaDrivenModule.res
+o SchemaDrivenString.cmi : cp ..\bs\src\SchemaDrivenString.cmi
+o SchemaDrivenString.cmj : cp ..\bs\src\SchemaDrivenString.cmj
+o SchemaDrivenString.cmt : cp ..\bs\src\SchemaDrivenString.cmt
+o SchemaDrivenString.res : cp ..\..\src\SchemaDrivenString.res
+o SchemaDrivenString.resi : cp ..\..\src\SchemaDrivenString.resi
+o SchemaDrivenString.cmti : cp ..\bs\src\SchemaDrivenString.cmti
+o SchemaDrivenPrimitive.cmi : cp ..\bs\src\SchemaDrivenPrimitive.cmi
+o SchemaDrivenPrimitive.cmj : cp ..\bs\src\SchemaDrivenPrimitive.cmj
+o SchemaDrivenPrimitive.cmt : cp ..\bs\src\SchemaDrivenPrimitive.cmt
+o SchemaDrivenPrimitive.res : cp ..\..\src\SchemaDrivenPrimitive.res
+build install.stamp : touch SchemaDsl.cmi SchemaDsl.cmj SchemaDrivenInt.cmi SchemaDrivenInt.cmj SchemaDrivenBool.cmi SchemaDrivenBool.cmj SchemaDrivenUnit.cmi SchemaDrivenUnit.cmj SchemaDrivenFloat.cmi SchemaDrivenFloat.cmj SchemaDrivenModule.cmi SchemaDrivenModule.cmj SchemaDrivenString.cmi SchemaDrivenString.cmj SchemaDrivenPrimitive.cmi SchemaDrivenPrimitive.cmj 
