@@ -6,7 +6,7 @@ rule astj
   command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe"  -bs-v 10.1.4 -open RescriptStruct -absname -bs-ast -o $out $i
 o test-src\SchemeDrivenIntTest.ast : astj ..\..\test-src\SchemeDrivenIntTest.res
 rule deps_dev
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash da54784285326de1757cb23e1705ed87 $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash caf26522e1f982ed05d5cc7bbcd2327b $in
   restat = 1
 o test-src\SchemeDrivenIntTest.d : deps_dev test-src\SchemeDrivenIntTest.ast
 rule mij_dev
@@ -23,9 +23,12 @@ o test-src\SchemeDrivenFloatTest.cmj test-src\SchemeDrivenFloatTest.cmi ..\js\te
 o test-src\SchemeDrivenStringTest.ast : astj ..\..\test-src\SchemeDrivenStringTest.res
 o test-src\SchemeDrivenStringTest.d : deps_dev test-src\SchemeDrivenStringTest.ast
 o test-src\SchemeDrivenStringTest.cmj test-src\SchemeDrivenStringTest.cmi ..\js\test-src\SchemeDrivenStringTest.bs.js : mij_dev test-src\SchemeDrivenStringTest.ast
+o test-src\SchemaDrivenNamesCorrectorTest.ast : astj ..\..\test-src\SchemaDrivenNamesCorrectorTest.res
+o test-src\SchemaDrivenNamesCorrectorTest.d : deps_dev test-src\SchemaDrivenNamesCorrectorTest.ast
+o test-src\SchemaDrivenNamesCorrectorTest.cmj test-src\SchemaDrivenNamesCorrectorTest.cmi ..\js\test-src\SchemaDrivenNamesCorrectorTest.bs.js : mij_dev test-src\SchemaDrivenNamesCorrectorTest.ast
 o src\SchemaDriven.ast : astj ..\..\src\SchemaDriven.res
 rule deps
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash da54784285326de1757cb23e1705ed87 $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash caf26522e1f982ed05d5cc7bbcd2327b $in
   restat = 1
 o src\SchemaDriven.d : deps src\SchemaDriven.ast
 rule mij
