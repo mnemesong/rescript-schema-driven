@@ -38,3 +38,10 @@ let testVariantObject =
     ],
     eng,
   )->Result.getExn
+
+let testVariantContainer =
+  variantContainer(
+    "TestVariantContainer",
+    [Field("var1", [float]), Field("var2", [testOptionStr, float]), Field("var3", [string])],
+    eng,
+  )->Result.getExn

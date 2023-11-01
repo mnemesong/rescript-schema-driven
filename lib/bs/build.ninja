@@ -6,7 +6,7 @@ rule astj
   command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe"  -bs-v 10.1.4 -open RescriptStruct -absname -bs-ast -o $out $i
 o _generated-test\TestPersonTest.ast : astj ..\..\_generated-test\TestPersonTest.res
 rule deps_dev
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash c3f53075b053ed64c38b31d4443e5174 $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash 17200b2ad04441c4c3f4bc1b29e34867 $in
   restat = 1
 o _generated-test\TestPersonTest.d : deps_dev _generated-test\TestPersonTest.ast
 rule mij_dev
@@ -26,6 +26,9 @@ o _generated-test\TestTupleObjectTest.cmj _generated-test\TestTupleObjectTest.cm
 o _generated-test\TestVariantObjectTest.ast : astj ..\..\_generated-test\TestVariantObjectTest.res
 o _generated-test\TestVariantObjectTest.d : deps_dev _generated-test\TestVariantObjectTest.ast
 o _generated-test\TestVariantObjectTest.cmj _generated-test\TestVariantObjectTest.cmi ..\js\_generated-test\TestVariantObjectTest.bs.js : mij_dev _generated-test\TestVariantObjectTest.ast
+o _generated-test\TestVariantContainerTest.ast : astj ..\..\_generated-test\TestVariantContainerTest.res
+o _generated-test\TestVariantContainerTest.d : deps_dev _generated-test\TestVariantContainerTest.ast
+o _generated-test\TestVariantContainerTest.cmj _generated-test\TestVariantContainerTest.cmi ..\js\_generated-test\TestVariantContainerTest.bs.js : mij_dev _generated-test\TestVariantContainerTest.ast
 o _generated\TestPerson.ast : astj ..\..\_generated\TestPerson.res
 o _generated\TestPerson.d : deps_dev _generated\TestPerson.ast _generated\TestPerson.iast
 o _generated\TestPerson.iast : astj ..\..\_generated\TestPerson.resi
@@ -64,6 +67,11 @@ o _generated\TestVariantObject.d : deps_dev _generated\TestVariantObject.ast _ge
 o _generated\TestVariantObject.iast : astj ..\..\_generated\TestVariantObject.resi
 o _generated\TestVariantObject.cmi : mi_dev _generated\TestVariantObject.iast
 o _generated\TestVariantObject.cmj ..\js\_generated\TestVariantObject.bs.js : mj_dev _generated\TestVariantObject.ast _generated\TestVariantObject.cmi
+o _generated\TestVariantContainer.ast : astj ..\..\_generated\TestVariantContainer.res
+o _generated\TestVariantContainer.d : deps_dev _generated\TestVariantContainer.ast _generated\TestVariantContainer.iast
+o _generated\TestVariantContainer.iast : astj ..\..\_generated\TestVariantContainer.resi
+o _generated\TestVariantContainer.cmi : mi_dev _generated\TestVariantContainer.iast
+o _generated\TestVariantContainer.cmj ..\js\_generated\TestVariantContainer.bs.js : mj_dev _generated\TestVariantContainer.ast _generated\TestVariantContainer.cmi
 o test-schema\SchemaDrivenTest.ast : astj ..\..\test-schema\SchemaDrivenTest.res
 o test-schema\SchemaDrivenTest.d : deps_dev test-schema\SchemaDrivenTest.ast
 o test-schema\SchemaDrivenTest.cmj test-schema\SchemaDrivenTest.cmi ..\js\test-schema\SchemaDrivenTest.bs.js : mij_dev test-schema\SchemaDrivenTest.ast
@@ -87,7 +95,7 @@ o test-src\SchemaDrivenNamesCorrectorTest.d : deps_dev test-src\SchemaDrivenName
 o test-src\SchemaDrivenNamesCorrectorTest.cmj test-src\SchemaDrivenNamesCorrectorTest.cmi ..\js\test-src\SchemaDrivenNamesCorrectorTest.bs.js : mij_dev test-src\SchemaDrivenNamesCorrectorTest.ast
 o src\SchemaDriven.ast : astj ..\..\src\SchemaDriven.res
 rule deps
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash c3f53075b053ed64c38b31d4443e5174 $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash 17200b2ad04441c4c3f4bc1b29e34867 $in
   restat = 1
 o src\SchemaDriven.d : deps src\SchemaDriven.ast
 rule mij
@@ -156,6 +164,9 @@ o src\SchemaDrivenVariantObject.cmj src\SchemaDrivenVariantObject.cmi ..\js\src\
 o src\SchemaDrivenNamesCorrector.ast : astj ..\..\src\SchemaDrivenNamesCorrector.res
 o src\SchemaDrivenNamesCorrector.d : deps src\SchemaDrivenNamesCorrector.ast
 o src\SchemaDrivenNamesCorrector.cmj src\SchemaDrivenNamesCorrector.cmi ..\js\src\SchemaDrivenNamesCorrector.bs.js : mij src\SchemaDrivenNamesCorrector.ast
+o src\SchemaDrivenVariantContainer.ast : astj ..\..\src\SchemaDrivenVariantContainer.res
+o src\SchemaDrivenVariantContainer.d : deps src\SchemaDrivenVariantContainer.ast
+o src\SchemaDrivenVariantContainer.cmj src\SchemaDrivenVariantContainer.cmi ..\js\src\SchemaDrivenVariantContainer.bs.js : mij src\SchemaDrivenVariantContainer.ast
 o src\SchemaDrivenRescriptStructPlugin.ast : astj ..\..\src\SchemaDrivenRescriptStructPlugin.res
 o src\SchemaDrivenRescriptStructPlugin.d : deps src\SchemaDrivenRescriptStructPlugin.ast
 o src\SchemaDrivenRescriptStructPlugin.cmj src\SchemaDrivenRescriptStructPlugin.cmi ..\js\src\SchemaDrivenRescriptStructPlugin.bs.js : mij src\SchemaDrivenRescriptStructPlugin.ast

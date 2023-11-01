@@ -61,3 +61,13 @@ let variantObject = (
     engine,
     moduleName,
   )
+
+let variantContainer = (
+  moduleName: string,
+  variants: array<field<array<schemaDrivenModule>>>,
+  engine: SchemaDrivenEngine.schemaDrivenEngine,
+) =>
+  SchemaDrivenVariantContainer.makeResultCode(
+    moduleName,
+    variants,
+  ) |> SchemaDrivenEngine.printModule(engine, moduleName)
