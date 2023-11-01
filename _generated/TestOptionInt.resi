@@ -1,0 +1,1 @@
+include SchemaDrivenRescriptStructPlugin.ModuleType with type t = option<SchemaDrivenInt.t>

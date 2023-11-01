@@ -12,13 +12,21 @@ let make = (moduleName: string, t: string, struct: string): resultCodeDeclar => 
   moduleName,
   t,
   struct,
-  moduleTypes: ["SchemaDrivenModule"],
+  moduleTypes: ["SchemaDrivenModule.SchemaDrivenModule with type t = " ++ t],
   funcDeclars: [],
 }
 
 let addModuleType = (resultCodeDeclar: resultCodeDeclar, moduleType: string): resultCodeDeclar => {
   ...resultCodeDeclar,
   moduleTypes: resultCodeDeclar.moduleTypes->Array.concat([moduleType]),
+}
+
+let filterModuleTypes = (
+  resultCodeDeclar: resultCodeDeclar,
+  filter: string => bool,
+): resultCodeDeclar => {
+  ...resultCodeDeclar,
+  moduleTypes: resultCodeDeclar.moduleTypes->Js.Array2.filter(filter),
 }
 
 let addFuncs = (resultCodeDeclar: resultCodeDeclar, funcs: array<string>): resultCodeDeclar => {
@@ -35,3 +43,6 @@ let printModuleBody = (resultCodeDeclar: resultCodeDeclar): string =>
   ]
   ->Array.concat(resultCodeDeclar.funcDeclars)
   ->Js.Array2.joinWith("\n\n")
+
+let printModuleType = (resultCodeDeclar: resultCodeDeclar): string =>
+  resultCodeDeclar.moduleTypes->Array.map(t => "include " ++ t)->Js.Array2.joinWith("\n")

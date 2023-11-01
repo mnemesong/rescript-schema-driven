@@ -11,6 +11,10 @@
     {
       "dir": "test-schema",
       "type": "dev"
+    },
+    {
+      "dir": "_generated",
+      "type": "dev"
     }
   ],
   "package-specs": [

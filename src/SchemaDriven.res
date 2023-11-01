@@ -10,4 +10,12 @@ let string = def("SchemaDrivenString")
 
 let bool = def("SchemaDrivenBool")
 
-let optionNull = SchemaDrivenOptionNull.def
+let optionNull = (
+  moduleName: string,
+  t: schemaDrivenModule,
+  engine: SchemaDrivenEngine.schemaDrivenEngine,
+) =>
+  SchemaDrivenOptionNull.makeResultCode(moduleName, t) |> SchemaDrivenEngine.printModule(
+    engine,
+    moduleName,
+  )

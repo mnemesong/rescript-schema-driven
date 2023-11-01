@@ -9,16 +9,19 @@ let structErrToExn = (res: result<'t, S.Error.t>): result<'t, exn> =>
   | Error(e) => Error(RescriptStructExn(e))
   }
 
-let thenStructErrtoExn = async (res: promise<result<'t, S.Error.t>>): result<'t, exn> =>
+let thenStructErrToExn = async (res: promise<result<'t, S.Error.t>>): result<'t, exn> =>
   (await res)->structErrToExn
 
 module type ModuleType = {
-  type t
+  include SchemaDrivenModule.SchemaDrivenModule
 
   let parse: Js.Json.t => result<t, exn>
   let parseAny: 'a => result<t, exn>
-  let parseJsonString: string => result<t, exn>
-  let parseAsync: Js.Json.t => promise<result<'value, exn>>
+  let parseJson: string => result<t, exn>
+  let parseAsync: Js.Json.t => promise<result<t, exn>>
+  let serialize: t => result<Js.Json.t, exn>
+  let serializeToUnknown: t => result<unknown, exn>
+  let serializeToJson: t => result<string, exn>
 }
 
 let rescriptStructParse = `let parse = (x) => x->S.parseWith(struct)
@@ -27,20 +30,35 @@ let rescriptStructParse = `let parse = (x) => x->S.parseWith(struct)
 let rescriptStructParseAny = `let parseAny = (x) => x->S.parseAnyWith(struct)
 ->SchemaDrivenRescriptStructPlugin.structErrToExn`
 
-let rescriptStructParseJsonString = `let parseJsonString = (x) => x->S.parseJsonStringWith(struct)
+let rescriptStructParseJson = `let parseJson = (x) => x->S.parseJsonWith(struct)
 ->SchemaDrivenRescriptStructPlugin.structErrToExn`
 
 let rescriptStructParseAsync = `let parseAsync = (x) => x->S.parseAsyncWith(struct)
 ->SchemaDrivenRescriptStructPlugin.thenStructErrToExn`
+
+let rescriptStructSerialize = `let serialize = (x) => x->S.serializeWith(struct)
+->SchemaDrivenRescriptStructPlugin.structErrToExn`
+
+let rescriptStructSerializeToUnknown =
+  `let serializeToUnknown = ` ++ `(x) => x->S.serializeToUnknownWith(struct)
+->SchemaDrivenRescriptStructPlugin.structErrToExn`
+
+let rescriptStructSerializeToJson =
+  `let serializeToJson = ` ++ `(x) => x->S.serializeToJsonWith(struct)
+->SchemaDrivenRescriptStructPlugin.structErrToExn`
 
 let plugin: schemaDrivenPlugin = (resultCodeDeclar: resultCodeDeclar) =>
   resultCodeDeclar
   ->addFuncs([
     rescriptStructParse,
     rescriptStructParseAny,
-    rescriptStructParseJsonString,
+    rescriptStructParseJson,
     rescriptStructParseAsync,
+    rescriptStructSerialize,
+    rescriptStructSerializeToUnknown,
+    rescriptStructSerializeToJson,
   ])
+  ->filterModuleTypes(mt => !Js.String2.includes(mt, "SchemaDrivenModule.SchemaDrivenModule"))
   ->addModuleType(
     `SchemaDrivenRescriptStructPlugin.ModuleType with type t = ` ++ resultCodeDeclar.t,
   )

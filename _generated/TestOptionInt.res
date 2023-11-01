@@ -8,8 +8,17 @@ let parse = (x) => x->S.parseWith(struct)
 let parseAny = (x) => x->S.parseAnyWith(struct)
 ->SchemaDrivenRescriptStructPlugin.structErrToExn
 
-let parseJsonString = (x) => x->S.parseJsonStringWith(struct)
+let parseJson = (x) => x->S.parseJsonWith(struct)
 ->SchemaDrivenRescriptStructPlugin.structErrToExn
 
 let parseAsync = (x) => x->S.parseAsyncWith(struct)
 ->SchemaDrivenRescriptStructPlugin.thenStructErrToExn
+
+let serialize = (x) => x->S.serializeWith(struct)
+->SchemaDrivenRescriptStructPlugin.structErrToExn
+
+let serializeToUnknown = (x) => x->S.serializeToUnknownWith(struct)
+->SchemaDrivenRescriptStructPlugin.structErrToExn
+
+let serializeToJson = (x) => x->S.serializeToJsonWith(struct)
+->SchemaDrivenRescriptStructPlugin.structErrToExn

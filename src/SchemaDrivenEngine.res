@@ -55,11 +55,18 @@ let printModule = (eng: schemaDrivenEngine, moduleName: string, code: resultCode
   `)
   let moduleName' = SchemaDrivenNamesCorrector.modifyModuleName(moduleName)
   let moduleFilePath = ResultExn.tryExec(() => resolvePath([eng->path, moduleName' ++ ".res"]))
-  let resultCode' = eng->plugins->Array.reduce(code, (acc, p) => p(acc))
-  let code' = resultCode'->printModuleBody
-  let result =
-    moduleFilePath->ResultExn.flatMap(p =>
-      ResultExn.tryExec(() => writeFileSync(p, code', isRemoveOnMatch(eng)))
+  let moduleTypePath = ResultExn.tryExec(() => resolvePath([eng->path, moduleName' ++ ".resi"]))
+  let resultCode = eng->plugins->Array.reduce(code, (acc, p) => p(acc))
+  let moduleBody = resultCode->printModuleBody
+  let moduleType = resultCode->printModuleType
+  moduleFilePath
+  ->ResultExn.flatMap(p =>
+    ResultExn.tryExec(() => writeFileSync(p, moduleBody, isRemoveOnMatch(eng)))
+  )
+  ->Result.flatMap(_ =>
+    moduleTypePath->Result.flatMap(p =>
+      ResultExn.tryExec(() => writeFileSync(p, moduleType, isRemoveOnMatch(eng)))
     )
-  ResultExn.map(result, _ => moduleName'->SchemaDrivenModule.def)
+  )
+  ->ResultExn.map(_ => moduleName'->SchemaDrivenModule.def)
 }

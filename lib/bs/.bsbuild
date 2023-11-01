@@ -14,7 +14,8 @@ SchemaDrivenRescriptStructPlugin
 SchemaDrivenUnexpectedFilesStrategy
 src	
 1
-7
+8
+TestOptionInt
 SchemaDrivenTest
 SchemaDrivenIntTest
 SchemaDrivenBoolTest
@@ -22,5 +23,5 @@ SchemaDrivenFloatTest
 SchemaDrivenModuleTest
 SchemaDrivenStringTest
 SchemaDrivenNamesCorrectorTest
-test-schema	test-src	
-1
+_generated	test-schema	test-src	
+1

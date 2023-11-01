@@ -5,11 +5,5 @@ let printStruct = (m: schemaDrivenModule): string => `S.null(${m->moduleName}.st
 
 let printType = (m: schemaDrivenModule): string => `option<${m->moduleName}.t>`
 
-let def = (
-  moduleName: string,
-  t: schemaDrivenModule,
-  engine: SchemaDrivenEngine.schemaDrivenEngine,
-): result<schemaDrivenModule, exn> => {
-  let resultCode = make(moduleName, printType(t), printStruct(t))
-  SchemaDrivenEngine.printModule(engine, moduleName, resultCode)
-}
+let makeResultCode = (moduleName: string, t: schemaDrivenModule): resultCodeDeclar =>
+  make(moduleName, printType(t), printStruct(t))
