@@ -6,7 +6,8 @@
   "scripts": {
     "res:build": "rescript",
     "res:dev": "rescript build -w",
-    "test:src": "mocha ./lib/js/test-src"
+    "test:src": "mocha ./lib/js/test-src",
+    "gen:gen": "node ./lib/js/test-schema/SchemaDrivenTest.bs"
   },
   "repository": {
     "type": "git",

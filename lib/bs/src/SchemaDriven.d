@@ -1,1 +1,1 @@
-src\SchemaDriven.cmj : src\SchemaDrivenEngine.cmj src\SchemaDrivenEngine.cmi src\SchemaDrivenModule.cmj src\SchemaDrivenModule.cmi src\SchemaDrivenOption.cmj src\SchemaDrivenOption.cmi
+src\SchemaDriven.cmj : src\SchemaDrivenEngine.cmj src\SchemaDrivenEngine.cmi src\SchemaDrivenModule.cmj src\SchemaDrivenModule.cmi src\SchemaDrivenOptionNull.cmj src\SchemaDrivenOptionNull.cmi

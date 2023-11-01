@@ -1,5 +1,6 @@
 open SchemaDrivenPlugin
 open SchemaDrivenUnexpectedFilesStrategy
+open SchemaDrivenResultCode
 open Belt
 
 type schemaDrivenEngine
@@ -43,7 +44,7 @@ function (dir) {
 }
 `)
 
-let printModule = (eng: schemaDrivenEngine, moduleName: string, code: string): result<
+let printModule = (eng: schemaDrivenEngine, moduleName: string, code: resultCodeDeclar): result<
   SchemaDrivenModule.schemaDrivenModule,
   exn,
 > => {
@@ -54,7 +55,8 @@ let printModule = (eng: schemaDrivenEngine, moduleName: string, code: string): r
   `)
   let moduleName' = SchemaDrivenNamesCorrector.modifyModuleName(moduleName)
   let moduleFilePath = ResultExn.tryExec(() => resolvePath([eng->path, moduleName' ++ ".res"]))
-  let code' = code ++ eng->plugins->Array.map(p => p.moduleBody)->Js.Array2.joinWith("\n\n")
+  let resultCode' = eng->plugins->Array.reduce(code, (acc, p) => p(acc))
+  let code' = resultCode'->printModuleBody
   let result =
     moduleFilePath->ResultExn.flatMap(p =>
       ResultExn.tryExec(() => writeFileSync(p, code', isRemoveOnMatch(eng)))

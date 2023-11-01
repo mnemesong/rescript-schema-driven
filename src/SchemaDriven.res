@@ -10,4 +10,4 @@ let string = def("SchemaDrivenString")
 
 let bool = def("SchemaDrivenBool")
 
-let option = SchemaDrivenOption.def
+let optionNull = SchemaDrivenOptionNull.def

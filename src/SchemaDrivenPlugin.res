@@ -1,4 +1,3 @@
-type schemaDrivenPlugin = {
-  moduleBody: string,
-  moduleSig: string,
-}
+open SchemaDrivenResultCode
+
+type schemaDrivenPlugin = resultCodeDeclar => resultCodeDeclar

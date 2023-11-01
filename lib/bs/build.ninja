@@ -4,15 +4,18 @@ g_finger := D:\rescript-projects\rescript-schema-driven\node_modules\rescript-st
 g_finger := D:\rescript-projects\rescript-schema-driven\node_modules\rescript-mocha\lib\ocaml\install.stamp
 rule astj
   command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe"  -bs-v 10.1.4 -open RescriptStruct -absname -bs-ast -o $out $i
-o test-src\SchemaDrivenIntTest.ast : astj ..\..\test-src\SchemaDrivenIntTest.res
+o test-schema\SchemaDrivenTest.ast : astj ..\..\test-schema\SchemaDrivenTest.res
 rule deps_dev
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash 41625783fda44945a1e5ad73f7e00c39 $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash 6b91d5e9284d310d12e64a14ddaa43ee $in
   restat = 1
-o test-src\SchemaDrivenIntTest.d : deps_dev test-src\SchemaDrivenIntTest.ast
+o test-schema\SchemaDrivenTest.d : deps_dev test-schema\SchemaDrivenTest.ast
 rule mij_dev
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe" -I test-src -I src -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-result-exn\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-struct\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-mocha\lib\ocaml" -open RescriptStruct  -bs-package-name rescript-schema-driven -bs-package-output commonjs:lib\js\$in_d:.bs.js -bs-v $g_finger $i
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe" -I test-src -I test-schema -I src -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-result-exn\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-struct\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-mocha\lib\ocaml" -open RescriptStruct  -bs-package-name rescript-schema-driven -bs-package-output commonjs:lib\js\$in_d:.bs.js -bs-v $g_finger $i
   dyndep = 1
   restat = 1
+o test-schema\SchemaDrivenTest.cmj test-schema\SchemaDrivenTest.cmi ..\js\test-schema\SchemaDrivenTest.bs.js : mij_dev test-schema\SchemaDrivenTest.ast
+o test-src\SchemaDrivenIntTest.ast : astj ..\..\test-src\SchemaDrivenIntTest.res
+o test-src\SchemaDrivenIntTest.d : deps_dev test-src\SchemaDrivenIntTest.ast
 o test-src\SchemaDrivenIntTest.cmj test-src\SchemaDrivenIntTest.cmi ..\js\test-src\SchemaDrivenIntTest.bs.js : mij_dev test-src\SchemaDrivenIntTest.ast
 o test-src\SchemaDrivenBoolTest.ast : astj ..\..\test-src\SchemaDrivenBoolTest.res
 o test-src\SchemaDrivenBoolTest.d : deps_dev test-src\SchemaDrivenBoolTest.ast
@@ -31,7 +34,7 @@ o test-src\SchemaDrivenNamesCorrectorTest.d : deps_dev test-src\SchemaDrivenName
 o test-src\SchemaDrivenNamesCorrectorTest.cmj test-src\SchemaDrivenNamesCorrectorTest.cmi ..\js\test-src\SchemaDrivenNamesCorrectorTest.bs.js : mij_dev test-src\SchemaDrivenNamesCorrectorTest.ast
 o src\SchemaDriven.ast : astj ..\..\src\SchemaDriven.res
 rule deps
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash 41625783fda44945a1e5ad73f7e00c39 $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash 6b91d5e9284d310d12e64a14ddaa43ee $in
   restat = 1
 o src\SchemaDriven.d : deps src\SchemaDriven.ast
 rule mij
@@ -68,9 +71,6 @@ o src\SchemaDrivenEngine.cmj src\SchemaDrivenEngine.cmi ..\js\src\SchemaDrivenEn
 o src\SchemaDrivenModule.ast : astj ..\..\src\SchemaDrivenModule.res
 o src\SchemaDrivenModule.d : deps src\SchemaDrivenModule.ast
 o src\SchemaDrivenModule.cmj src\SchemaDrivenModule.cmi ..\js\src\SchemaDrivenModule.bs.js : mij src\SchemaDrivenModule.ast
-o src\SchemaDrivenOption.ast : astj ..\..\src\SchemaDrivenOption.res
-o src\SchemaDrivenOption.d : deps src\SchemaDrivenOption.ast
-o src\SchemaDrivenOption.cmj src\SchemaDrivenOption.cmi ..\js\src\SchemaDrivenOption.bs.js : mij src\SchemaDrivenOption.ast
 o src\SchemaDrivenPlugin.ast : astj ..\..\src\SchemaDrivenPlugin.res
 o src\SchemaDrivenPlugin.d : deps src\SchemaDrivenPlugin.ast
 o src\SchemaDrivenPlugin.cmj src\SchemaDrivenPlugin.cmi ..\js\src\SchemaDrivenPlugin.bs.js : mij src\SchemaDrivenPlugin.ast
@@ -79,9 +79,18 @@ o src\SchemaDrivenString.d : deps src\SchemaDrivenString.ast src\SchemaDrivenStr
 o src\SchemaDrivenString.iast : astj ..\..\src\SchemaDrivenString.resi
 o src\SchemaDrivenString.cmi : mi src\SchemaDrivenString.iast
 o src\SchemaDrivenString.cmj ..\js\src\SchemaDrivenString.bs.js : mj src\SchemaDrivenString.ast src\SchemaDrivenString.cmi
+o src\SchemaDrivenOptionNull.ast : astj ..\..\src\SchemaDrivenOptionNull.res
+o src\SchemaDrivenOptionNull.d : deps src\SchemaDrivenOptionNull.ast
+o src\SchemaDrivenOptionNull.cmj src\SchemaDrivenOptionNull.cmi ..\js\src\SchemaDrivenOptionNull.bs.js : mij src\SchemaDrivenOptionNull.ast
+o src\SchemaDrivenResultCode.ast : astj ..\..\src\SchemaDrivenResultCode.res
+o src\SchemaDrivenResultCode.d : deps src\SchemaDrivenResultCode.ast
+o src\SchemaDrivenResultCode.cmj src\SchemaDrivenResultCode.cmi ..\js\src\SchemaDrivenResultCode.bs.js : mij src\SchemaDrivenResultCode.ast
 o src\SchemaDrivenNamesCorrector.ast : astj ..\..\src\SchemaDrivenNamesCorrector.res
 o src\SchemaDrivenNamesCorrector.d : deps src\SchemaDrivenNamesCorrector.ast
 o src\SchemaDrivenNamesCorrector.cmj src\SchemaDrivenNamesCorrector.cmi ..\js\src\SchemaDrivenNamesCorrector.bs.js : mij src\SchemaDrivenNamesCorrector.ast
+o src\SchemaDrivenRescriptStructPlugin.ast : astj ..\..\src\SchemaDrivenRescriptStructPlugin.res
+o src\SchemaDrivenRescriptStructPlugin.d : deps src\SchemaDrivenRescriptStructPlugin.ast
+o src\SchemaDrivenRescriptStructPlugin.cmj src\SchemaDrivenRescriptStructPlugin.cmi ..\js\src\SchemaDrivenRescriptStructPlugin.bs.js : mij src\SchemaDrivenRescriptStructPlugin.ast
 o src\SchemaDrivenUnexpectedFilesStrategy.ast : astj ..\..\src\SchemaDrivenUnexpectedFilesStrategy.res
 o src\SchemaDrivenUnexpectedFilesStrategy.d : deps src\SchemaDrivenUnexpectedFilesStrategy.ast
 o src\SchemaDrivenUnexpectedFilesStrategy.cmj src\SchemaDrivenUnexpectedFilesStrategy.cmi ..\js\src\SchemaDrivenUnexpectedFilesStrategy.bs.js : mij src\SchemaDrivenUnexpectedFilesStrategy.ast

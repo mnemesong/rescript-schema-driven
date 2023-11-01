@@ -7,6 +7,10 @@
     {
       "dir": "test-src",
       "type": "dev"
+    },
+    {
+      "dir": "test-schema",
+      "type": "dev"
     }
   ],
   "package-specs": [
