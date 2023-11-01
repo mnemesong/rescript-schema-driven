@@ -63,6 +63,10 @@ o SchemaDrivenResultCode.cmi : cp ..\bs\src\SchemaDrivenResultCode.cmi
 o SchemaDrivenResultCode.cmj : cp ..\bs\src\SchemaDrivenResultCode.cmj
 o SchemaDrivenResultCode.cmt : cp ..\bs\src\SchemaDrivenResultCode.cmt
 o SchemaDrivenResultCode.res : cp ..\..\src\SchemaDrivenResultCode.res
+o SchemaDrivenTupleObject.cmi : cp ..\bs\src\SchemaDrivenTupleObject.cmi
+o SchemaDrivenTupleObject.cmj : cp ..\bs\src\SchemaDrivenTupleObject.cmj
+o SchemaDrivenTupleObject.cmt : cp ..\bs\src\SchemaDrivenTupleObject.cmt
+o SchemaDrivenTupleObject.res : cp ..\..\src\SchemaDrivenTupleObject.res
 o SchemaDrivenNamesCorrector.cmi : cp ..\bs\src\SchemaDrivenNamesCorrector.cmi
 o SchemaDrivenNamesCorrector.cmj : cp ..\bs\src\SchemaDrivenNamesCorrector.cmj
 o SchemaDrivenNamesCorrector.cmt : cp ..\bs\src\SchemaDrivenNamesCorrector.cmt
@@ -75,4 +79,4 @@ o SchemaDrivenUnexpectedFilesStrategy.cmi : cp ..\bs\src\SchemaDrivenUnexpectedF
 o SchemaDrivenUnexpectedFilesStrategy.cmj : cp ..\bs\src\SchemaDrivenUnexpectedFilesStrategy.cmj
 o SchemaDrivenUnexpectedFilesStrategy.cmt : cp ..\bs\src\SchemaDrivenUnexpectedFilesStrategy.cmt
 o SchemaDrivenUnexpectedFilesStrategy.res : cp ..\..\src\SchemaDrivenUnexpectedFilesStrategy.res
-build install.stamp : touch SchemaDriven.cmi SchemaDriven.cmj SchemaDrivenInt.cmi SchemaDrivenInt.cmj SchemaDrivenBool.cmi SchemaDrivenBool.cmj SchemaDrivenField.cmi SchemaDrivenField.cmj SchemaDrivenFloat.cmi SchemaDrivenFloat.cmj SchemaDrivenEngine.cmi SchemaDrivenEngine.cmj SchemaDrivenModule.cmi SchemaDrivenModule.cmj SchemaDrivenObject.cmi SchemaDrivenObject.cmj SchemaDrivenPlugin.cmi SchemaDrivenPlugin.cmj SchemaDrivenRecord.cmi SchemaDrivenRecord.cmj SchemaDrivenString.cmi SchemaDrivenString.cmj SchemaDrivenOptionNull.cmi SchemaDrivenOptionNull.cmj SchemaDrivenResultCode.cmi SchemaDrivenResultCode.cmj SchemaDrivenNamesCorrector.cmi SchemaDrivenNamesCorrector.cmj SchemaDrivenRescriptStructPlugin.cmi SchemaDrivenRescriptStructPlugin.cmj SchemaDrivenUnexpectedFilesStrategy.cmi SchemaDrivenUnexpectedFilesStrategy.cmj 
+build install.stamp : touch SchemaDriven.cmi SchemaDriven.cmj SchemaDrivenInt.cmi SchemaDrivenInt.cmj SchemaDrivenBool.cmi SchemaDrivenBool.cmj SchemaDrivenField.cmi SchemaDrivenField.cmj SchemaDrivenFloat.cmi SchemaDrivenFloat.cmj SchemaDrivenEngine.cmi SchemaDrivenEngine.cmj SchemaDrivenModule.cmi SchemaDrivenModule.cmj SchemaDrivenObject.cmi SchemaDrivenObject.cmj SchemaDrivenPlugin.cmi SchemaDrivenPlugin.cmj SchemaDrivenRecord.cmi SchemaDrivenRecord.cmj SchemaDrivenString.cmi SchemaDrivenString.cmj SchemaDrivenOptionNull.cmi SchemaDrivenOptionNull.cmj SchemaDrivenResultCode.cmi SchemaDrivenResultCode.cmj SchemaDrivenTupleObject.cmi SchemaDrivenTupleObject.cmj SchemaDrivenNamesCorrector.cmi SchemaDrivenNamesCorrector.cmj SchemaDrivenRescriptStructPlugin.cmi SchemaDrivenRescriptStructPlugin.cmj SchemaDrivenUnexpectedFilesStrategy.cmi SchemaDrivenUnexpectedFilesStrategy.cmj 

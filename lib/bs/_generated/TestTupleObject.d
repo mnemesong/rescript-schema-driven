@@ -1,0 +1,2 @@
+_generated\TestTupleObject.cmj : src\SchemaDrivenBool.cmj src\SchemaDrivenBool.cmi src\SchemaDrivenInt.cmj src\SchemaDrivenInt.cmi src\SchemaDrivenRescriptStructPlugin.cmj src\SchemaDrivenRescriptStructPlugin.cmi _generated\TestOptionStr.cmj _generated\TestOptionStr.cmi
+_generated\TestTupleObject.cmi :  src\SchemaDrivenBool.cmi  src\SchemaDrivenInt.cmi  src\SchemaDrivenRescriptStructPlugin.cmi  _generated\TestOptionStr.cmi

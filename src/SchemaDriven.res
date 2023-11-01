@@ -41,3 +41,13 @@ let object = (
     engine,
     moduleName,
   )
+
+let tupleObject = (
+  moduleName: string,
+  types: array<schemaDrivenModule>,
+  engine: SchemaDrivenEngine.schemaDrivenEngine,
+) =>
+  SchemaDrivenTupleObject.makeResultCode(moduleName, types) |> SchemaDrivenEngine.printModule(
+    engine,
+    moduleName,
+  )

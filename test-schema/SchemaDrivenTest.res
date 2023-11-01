@@ -24,3 +24,4 @@ let testProfile =
     [Field("person", testPerson), Field("descr", testOptionStr)],
     eng,
   )->Result.getExn
+let testTupleObject = tupleObject("TestTupleObject", [int, testOptionStr, bool], eng)->Result.getExn
