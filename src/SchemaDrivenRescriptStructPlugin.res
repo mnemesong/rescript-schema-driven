@@ -33,7 +33,7 @@ let rescriptStructParseJsonString = `let parseJsonString = (x) => x->S.parseJson
 let rescriptStructParseAsync = `let parseAsync = (x) => x->S.parseAsyncWith(struct)
 ->SchemaDrivenRescriptStructPlugin.thenStructErrToExn`
 
-let rescriptStructPlugin: schemaDrivenPlugin = (resultCodeDeclar: resultCodeDeclar) =>
+let plugin: schemaDrivenPlugin = (resultCodeDeclar: resultCodeDeclar) =>
   resultCodeDeclar
   ->addFuncs([
     rescriptStructParse,

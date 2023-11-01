@@ -178,3 +178,13 @@
 80	109	13595946684026558	test-schema/SchemaDrivenTest.cmj	ab09a10139724cfc
 80	109	13595946684026558	test-schema/SchemaDrivenTest.cmi	ab09a10139724cfc
 80	109	13595946684026558	../js/test-schema/SchemaDrivenTest.bs.js	ab09a10139724cfc
+4	27	13595947806114959	test-schema/SchemaDrivenTest.ast	8a0ac4f070dea637
+9	47	13595947806124959	src/SchemaDrivenRescriptStructPlugin.ast	22ed58042068612d
+47	61	13595947806124959	src/SchemaDrivenRescriptStructPlugin.d	ca6aa554e063673b
+45	66	13595947806520973	test-schema/SchemaDrivenTest.d	33c829f884dbdddb
+62	94	13595947806816981	src/SchemaDrivenRescriptStructPlugin.cmj	c9ba50bffe3f72ed
+62	94	13595947806816981	src/SchemaDrivenRescriptStructPlugin.cmi	c9ba50bffe3f72ed
+62	94	13595947806816981	../js/src/SchemaDrivenRescriptStructPlugin.bs.js	c9ba50bffe3f72ed
+95	127	13595947806796980	test-schema/SchemaDrivenTest.cmj	ab09a10139724cfc
+95	127	13595947806796980	test-schema/SchemaDrivenTest.cmi	ab09a10139724cfc
+95	127	13595947806796980	../js/test-schema/SchemaDrivenTest.bs.js	ab09a10139724cfc
