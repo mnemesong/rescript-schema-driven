@@ -3,9 +3,7 @@ open SchemaDrivenResultCode
 open SchemaDrivenField
 open Belt
 
-type attr = Attr(string, schemaDrivenModule)
-
-let printStruct = (props: array<field>): string => {
+let printStruct = (props: array<field<schemaDrivenModule>>): string => {
   let propRows = props->Array.map(p => {
     let Field(propName, propT) = p
     `  o->S.field("${propName}", ${propT->moduleName}.struct)`
@@ -15,7 +13,7 @@ ${propRows->Js.Array2.joinWith(",\n")}
 ))`
 }
 
-let printType = (props: array<field>): string => {
+let printType = (props: array<field<schemaDrivenModule>>): string => {
   let propRows = props->Array.map(p => {
     let Field(_, propT) = p
     `  ${propT->moduleName}.t`

@@ -20,11 +20,11 @@ let optionNull = (
     moduleName,
   )
 
-type field = SchemaDrivenField.field
+type field<'a> = SchemaDrivenField.field<'a>
 
 let record = (
   moduleName: string,
-  props: array<field>,
+  props: array<field<schemaDrivenModule>>,
   engine: SchemaDrivenEngine.schemaDrivenEngine,
 ) =>
   SchemaDrivenRecord.makeResultCode(moduleName, props) |> SchemaDrivenEngine.printModule(
@@ -34,7 +34,7 @@ let record = (
 
 let object = (
   moduleName: string,
-  props: array<field>,
+  props: array<field<schemaDrivenModule>>,
   engine: SchemaDrivenEngine.schemaDrivenEngine,
 ) =>
   SchemaDrivenObject.makeResultCode(moduleName, props) |> SchemaDrivenEngine.printModule(
@@ -48,6 +48,16 @@ let tupleObject = (
   engine: SchemaDrivenEngine.schemaDrivenEngine,
 ) =>
   SchemaDrivenTupleObject.makeResultCode(moduleName, types) |> SchemaDrivenEngine.printModule(
+    engine,
+    moduleName,
+  )
+
+let variantObject = (
+  moduleName: string,
+  variants: array<field<array<field<schemaDrivenModule>>>>,
+  engine: SchemaDrivenEngine.schemaDrivenEngine,
+) =>
+  SchemaDrivenVariantObject.makeResultCode(moduleName, variants) |> SchemaDrivenEngine.printModule(
     engine,
     moduleName,
   )

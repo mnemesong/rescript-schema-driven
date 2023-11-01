@@ -1,3 +1,1 @@
-open SchemaDrivenModule
-
-type field = Field(string, schemaDrivenModule)
+type field<'a> = Field(string, 'a)

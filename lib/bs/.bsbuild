@@ -1,4 +1,4 @@
-17
+18
 SchemaDriven
 SchemaDrivenInt
 SchemaDrivenBool
@@ -13,12 +13,13 @@ SchemaDrivenString
 SchemaDrivenOptionNull
 SchemaDrivenResultCode
 SchemaDrivenTupleObject
+SchemaDrivenVariantObject
 SchemaDrivenNamesCorrector
 SchemaDrivenRescriptStructPlugin
 SchemaDrivenUnexpectedFilesStrategy
 src	
-1
-16
+1
+18
 TestPerson
 TestProfile
 TestOptionInt
@@ -28,12 +29,14 @@ TestProfileTest
 TestTupleObject
 SchemaDrivenTest
 TestOptionIntTest
+TestVariantObject
 SchemaDrivenIntTest
 TestTupleObjectTest
 SchemaDrivenBoolTest
 SchemaDrivenFloatTest
+TestVariantObjectTest
 SchemaDrivenModuleTest
 SchemaDrivenStringTest
 SchemaDrivenNamesCorrectorTest
 _generated	_generated-test	test-schema	test-src	
-1
+1
