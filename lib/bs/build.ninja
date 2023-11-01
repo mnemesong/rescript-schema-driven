@@ -6,7 +6,7 @@ rule astj
   command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe"  -bs-v 10.1.4 -open RescriptStruct -absname -bs-ast -o $out $i
 o _generated-test\TestPersonTest.ast : astj ..\..\_generated-test\TestPersonTest.res
 rule deps_dev
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash 17200b2ad04441c4c3f4bc1b29e34867 $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash 18edebd1e40a93907870efc9798da904 $in
   restat = 1
 o _generated-test\TestPersonTest.d : deps_dev _generated-test\TestPersonTest.ast
 rule mij_dev
@@ -14,6 +14,9 @@ rule mij_dev
   dyndep = 1
   restat = 1
 o _generated-test\TestPersonTest.cmj _generated-test\TestPersonTest.cmi ..\js\_generated-test\TestPersonTest.bs.js : mij_dev _generated-test\TestPersonTest.ast
+o _generated-test\TestTupleNTest.ast : astj ..\..\_generated-test\TestTupleNTest.res
+o _generated-test\TestTupleNTest.d : deps_dev _generated-test\TestTupleNTest.ast
+o _generated-test\TestTupleNTest.cmj _generated-test\TestTupleNTest.cmi ..\js\_generated-test\TestTupleNTest.bs.js : mij_dev _generated-test\TestTupleNTest.ast
 o _generated-test\TestProfileTest.ast : astj ..\..\_generated-test\TestProfileTest.res
 o _generated-test\TestProfileTest.d : deps_dev _generated-test\TestProfileTest.ast
 o _generated-test\TestProfileTest.cmj _generated-test\TestProfileTest.cmi ..\js\_generated-test\TestProfileTest.bs.js : mij_dev _generated-test\TestProfileTest.ast
@@ -42,6 +45,11 @@ rule mj_dev
   dyndep = 1
   restat = 1
 o _generated\TestPerson.cmj ..\js\_generated\TestPerson.bs.js : mj_dev _generated\TestPerson.ast _generated\TestPerson.cmi
+o _generated\TestTupleN.ast : astj ..\..\_generated\TestTupleN.res
+o _generated\TestTupleN.d : deps_dev _generated\TestTupleN.ast _generated\TestTupleN.iast
+o _generated\TestTupleN.iast : astj ..\..\_generated\TestTupleN.resi
+o _generated\TestTupleN.cmi : mi_dev _generated\TestTupleN.iast
+o _generated\TestTupleN.cmj ..\js\_generated\TestTupleN.bs.js : mj_dev _generated\TestTupleN.ast _generated\TestTupleN.cmi
 o _generated\TestProfile.ast : astj ..\..\_generated\TestProfile.res
 o _generated\TestProfile.d : deps_dev _generated\TestProfile.ast _generated\TestProfile.iast
 o _generated\TestProfile.iast : astj ..\..\_generated\TestProfile.resi
@@ -95,7 +103,7 @@ o test-src\SchemaDrivenNamesCorrectorTest.d : deps_dev test-src\SchemaDrivenName
 o test-src\SchemaDrivenNamesCorrectorTest.cmj test-src\SchemaDrivenNamesCorrectorTest.cmi ..\js\test-src\SchemaDrivenNamesCorrectorTest.bs.js : mij_dev test-src\SchemaDrivenNamesCorrectorTest.ast
 o src\SchemaDriven.ast : astj ..\..\src\SchemaDriven.res
 rule deps
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash 17200b2ad04441c4c3f4bc1b29e34867 $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash 18edebd1e40a93907870efc9798da904 $in
   restat = 1
 o src\SchemaDriven.d : deps src\SchemaDriven.ast
 rule mij
@@ -149,6 +157,9 @@ o src\SchemaDrivenString.d : deps src\SchemaDrivenString.ast src\SchemaDrivenStr
 o src\SchemaDrivenString.iast : astj ..\..\src\SchemaDrivenString.resi
 o src\SchemaDrivenString.cmi : mi src\SchemaDrivenString.iast
 o src\SchemaDrivenString.cmj ..\js\src\SchemaDrivenString.bs.js : mj src\SchemaDrivenString.ast src\SchemaDrivenString.cmi
+o src\SchemaDrivenTupleN.ast : astj ..\..\src\SchemaDrivenTupleN.res
+o src\SchemaDrivenTupleN.d : deps src\SchemaDrivenTupleN.ast
+o src\SchemaDrivenTupleN.cmj src\SchemaDrivenTupleN.cmi ..\js\src\SchemaDrivenTupleN.bs.js : mij src\SchemaDrivenTupleN.ast
 o src\SchemaDrivenOptionNull.ast : astj ..\..\src\SchemaDrivenOptionNull.res
 o src\SchemaDrivenOptionNull.d : deps src\SchemaDrivenOptionNull.ast
 o src\SchemaDrivenOptionNull.cmj src\SchemaDrivenOptionNull.cmi ..\js\src\SchemaDrivenOptionNull.bs.js : mij src\SchemaDrivenOptionNull.ast

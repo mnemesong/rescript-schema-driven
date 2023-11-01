@@ -45,3 +45,5 @@ let testVariantContainer =
     [Field("var1", [float]), Field("var2", [testOptionStr, float]), Field("var3", [string])],
     eng,
   )->Result.getExn
+
+let testTupleN = tupleN("TestTupleN", [string, testPersonRec, testOptionInt], eng)

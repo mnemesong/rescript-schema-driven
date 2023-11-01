@@ -42,6 +42,16 @@ let object = (
     moduleName,
   )
 
+let tupleN = (
+  moduleName: string,
+  params: array<schemaDrivenModule>,
+  engine: SchemaDrivenEngine.schemaDrivenEngine,
+) =>
+  SchemaDrivenTupleN.makeResultCode(moduleName, params) |> SchemaDrivenEngine.printModule(
+    engine,
+    moduleName,
+  )
+
 let tupleObject = (
   moduleName: string,
   types: array<schemaDrivenModule>,
