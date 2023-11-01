@@ -1,8 +1,16 @@
-type testOptionInt = option<SchemaDrivenInt.t>
+type testPerson = {
+  id:  SchemaDrivenInt.t,
+  ages:  TestOptionInt.t,
+  name:  SchemaDrivenString.t
+}
 
-type t = testOptionInt
+type t = testPerson
 
-let struct: S.t<t> = S.null(SchemaDrivenInt.struct)
+let struct: S.t<t> = S.object(o => {
+  id: o->S.field("id", SchemaDrivenInt.struct),
+  ages: o->S.field("ages", TestOptionInt.struct),
+  name: o->S.field("name", SchemaDrivenString.struct)
+})
 
 let parse = (x) => x->S.parseWith(struct)
 ->SchemaDrivenRescriptStructPlugin.structErrToExn

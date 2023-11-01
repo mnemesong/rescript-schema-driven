@@ -1,5 +1,6 @@
 open SchemaDrivenPlugin
 open SchemaDrivenResultCode
+open SchemaDrivenNamesCorrector
 
 exception RescriptStructExn(S.Error.t)
 
@@ -60,5 +61,6 @@ let plugin: schemaDrivenPlugin = (resultCodeDeclar: resultCodeDeclar) =>
   ])
   ->filterModuleTypes(mt => !Js.String2.includes(mt, "SchemaDrivenModule.SchemaDrivenModule"))
   ->addModuleType(
-    `SchemaDrivenRescriptStructPlugin.ModuleType with type t = ` ++ resultCodeDeclar.t,
+    `SchemaDrivenRescriptStructPlugin.ModuleType with type t = ` ++
+    resultCodeDeclar.moduleName->modifyVariableName,
   )

@@ -1,4 +1,5 @@
 open Belt
+open SchemaDrivenNamesCorrector
 
 type resultCodeDeclar = {
   moduleName: string,
@@ -12,7 +13,9 @@ let make = (moduleName: string, t: string, struct: string): resultCodeDeclar => 
   moduleName,
   t,
   struct,
-  moduleTypes: ["SchemaDrivenModule.SchemaDrivenModule with type t = " ++ t],
+  moduleTypes: [
+    "SchemaDrivenModule.SchemaDrivenModule with type t = " ++ moduleName->modifyVariableName,
+  ],
   funcDeclars: [],
 }
 
@@ -38,11 +41,13 @@ let addFuncs = (resultCodeDeclar: resultCodeDeclar, funcs: array<string>): resul
 
 let printModuleBody = (resultCodeDeclar: resultCodeDeclar): string =>
   [
-    "type t = " ++ resultCodeDeclar.t,
-    "let struct: S.t<" ++ resultCodeDeclar.t ++ "> = " ++ resultCodeDeclar.struct,
+    `type ${resultCodeDeclar.moduleName->modifyVariableName} = ${resultCodeDeclar.t}`,
+    "type t = " ++ resultCodeDeclar.moduleName->modifyVariableName,
+    "let struct: S.t<t> = " ++ resultCodeDeclar.struct,
   ]
   ->Array.concat(resultCodeDeclar.funcDeclars)
   ->Js.Array2.joinWith("\n\n")
 
 let printModuleType = (resultCodeDeclar: resultCodeDeclar): string =>
+  `type ${resultCodeDeclar.moduleName->modifyVariableName} = ${resultCodeDeclar.t}\n\n` ++
   resultCodeDeclar.moduleTypes->Array.map(t => "include " ++ t)->Js.Array2.joinWith("\n")
