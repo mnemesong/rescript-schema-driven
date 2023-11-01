@@ -46,4 +46,7 @@ let testVariantContainer =
     eng,
   )->Result.getExn
 
-let testTupleN = tupleN("TestTupleN", [string, testPersonRec, testOptionInt], eng)
+let testVariantLiteral =
+  variantLiteral("TestVariantLiteral", ["Banana", "Orange", "Apple"], eng)->Result.getExn
+
+let testTupleN = tupleN("TestTupleN", [string, testPersonRec, testOptionInt], eng)->Result.getExn

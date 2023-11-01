@@ -81,3 +81,13 @@ let variantContainer = (
     moduleName,
     variants,
   ) |> SchemaDrivenEngine.printModule(engine, moduleName)
+
+let variantLiteral = (
+  moduleName: string,
+  variants: array<string>,
+  engine: SchemaDrivenEngine.schemaDrivenEngine,
+) =>
+  SchemaDrivenVariantLiteral.makeResultCode(moduleName, variants) |> SchemaDrivenEngine.printModule(
+    engine,
+    moduleName,
+  )
