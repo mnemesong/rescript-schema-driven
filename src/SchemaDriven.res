@@ -20,14 +20,24 @@ let optionNull = (
     moduleName,
   )
 
-type objectProp = SchemaDrivenRecord.objectProp
+type field = SchemaDrivenField.field
 
 let record = (
   moduleName: string,
-  props: array<objectProp>,
+  props: array<field>,
   engine: SchemaDrivenEngine.schemaDrivenEngine,
 ) =>
   SchemaDrivenRecord.makeResultCode(moduleName, props) |> SchemaDrivenEngine.printModule(
+    engine,
+    moduleName,
+  )
+
+let object = (
+  moduleName: string,
+  props: array<field>,
+  engine: SchemaDrivenEngine.schemaDrivenEngine,
+) =>
+  SchemaDrivenObject.makeResultCode(moduleName, props) |> SchemaDrivenEngine.printModule(
     engine,
     moduleName,
   )

@@ -6,7 +6,7 @@ rule astj
   command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe"  -bs-v 10.1.4 -open RescriptStruct -absname -bs-ast -o $out $i
 o _generated-test\TestPersonTest.ast : astj ..\..\_generated-test\TestPersonTest.res
 rule deps_dev
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash 99ffcead516da8366e769f53290655a3 $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash 56a42bf16a2cbc284384b5f5cfd2fab8 $in
   restat = 1
 o _generated-test\TestPersonTest.d : deps_dev _generated-test\TestPersonTest.ast
 rule mij_dev
@@ -14,6 +14,9 @@ rule mij_dev
   dyndep = 1
   restat = 1
 o _generated-test\TestPersonTest.cmj _generated-test\TestPersonTest.cmi ..\js\_generated-test\TestPersonTest.bs.js : mij_dev _generated-test\TestPersonTest.ast
+o _generated-test\TestProfileTest.ast : astj ..\..\_generated-test\TestProfileTest.res
+o _generated-test\TestProfileTest.d : deps_dev _generated-test\TestProfileTest.ast
+o _generated-test\TestProfileTest.cmj _generated-test\TestProfileTest.cmi ..\js\_generated-test\TestProfileTest.bs.js : mij_dev _generated-test\TestProfileTest.ast
 o _generated-test\TestOptionIntTest.ast : astj ..\..\_generated-test\TestOptionIntTest.res
 o _generated-test\TestOptionIntTest.d : deps_dev _generated-test\TestOptionIntTest.ast
 o _generated-test\TestOptionIntTest.cmj _generated-test\TestOptionIntTest.cmi ..\js\_generated-test\TestOptionIntTest.bs.js : mij_dev _generated-test\TestOptionIntTest.ast
@@ -30,11 +33,21 @@ rule mj_dev
   dyndep = 1
   restat = 1
 o _generated\TestPerson.cmj ..\js\_generated\TestPerson.bs.js : mj_dev _generated\TestPerson.ast _generated\TestPerson.cmi
+o _generated\TestProfile.ast : astj ..\..\_generated\TestProfile.res
+o _generated\TestProfile.d : deps_dev _generated\TestProfile.ast _generated\TestProfile.iast
+o _generated\TestProfile.iast : astj ..\..\_generated\TestProfile.resi
+o _generated\TestProfile.cmi : mi_dev _generated\TestProfile.iast
+o _generated\TestProfile.cmj ..\js\_generated\TestProfile.bs.js : mj_dev _generated\TestProfile.ast _generated\TestProfile.cmi
 o _generated\TestOptionInt.ast : astj ..\..\_generated\TestOptionInt.res
 o _generated\TestOptionInt.d : deps_dev _generated\TestOptionInt.ast _generated\TestOptionInt.iast
 o _generated\TestOptionInt.iast : astj ..\..\_generated\TestOptionInt.resi
 o _generated\TestOptionInt.cmi : mi_dev _generated\TestOptionInt.iast
 o _generated\TestOptionInt.cmj ..\js\_generated\TestOptionInt.bs.js : mj_dev _generated\TestOptionInt.ast _generated\TestOptionInt.cmi
+o _generated\TestOptionStr.ast : astj ..\..\_generated\TestOptionStr.res
+o _generated\TestOptionStr.d : deps_dev _generated\TestOptionStr.ast _generated\TestOptionStr.iast
+o _generated\TestOptionStr.iast : astj ..\..\_generated\TestOptionStr.resi
+o _generated\TestOptionStr.cmi : mi_dev _generated\TestOptionStr.iast
+o _generated\TestOptionStr.cmj ..\js\_generated\TestOptionStr.bs.js : mj_dev _generated\TestOptionStr.ast _generated\TestOptionStr.cmi
 o test-schema\SchemaDrivenTest.ast : astj ..\..\test-schema\SchemaDrivenTest.res
 o test-schema\SchemaDrivenTest.d : deps_dev test-schema\SchemaDrivenTest.ast
 o test-schema\SchemaDrivenTest.cmj test-schema\SchemaDrivenTest.cmi ..\js\test-schema\SchemaDrivenTest.bs.js : mij_dev test-schema\SchemaDrivenTest.ast
@@ -58,7 +71,7 @@ o test-src\SchemaDrivenNamesCorrectorTest.d : deps_dev test-src\SchemaDrivenName
 o test-src\SchemaDrivenNamesCorrectorTest.cmj test-src\SchemaDrivenNamesCorrectorTest.cmi ..\js\test-src\SchemaDrivenNamesCorrectorTest.bs.js : mij_dev test-src\SchemaDrivenNamesCorrectorTest.ast
 o src\SchemaDriven.ast : astj ..\..\src\SchemaDriven.res
 rule deps
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash 99ffcead516da8366e769f53290655a3 $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash 56a42bf16a2cbc284384b5f5cfd2fab8 $in
   restat = 1
 o src\SchemaDriven.d : deps src\SchemaDriven.ast
 rule mij
@@ -84,6 +97,9 @@ o src\SchemaDrivenBool.d : deps src\SchemaDrivenBool.ast src\SchemaDrivenBool.ia
 o src\SchemaDrivenBool.iast : astj ..\..\src\SchemaDrivenBool.resi
 o src\SchemaDrivenBool.cmi : mi src\SchemaDrivenBool.iast
 o src\SchemaDrivenBool.cmj ..\js\src\SchemaDrivenBool.bs.js : mj src\SchemaDrivenBool.ast src\SchemaDrivenBool.cmi
+o src\SchemaDrivenField.ast : astj ..\..\src\SchemaDrivenField.res
+o src\SchemaDrivenField.d : deps src\SchemaDrivenField.ast
+o src\SchemaDrivenField.cmj src\SchemaDrivenField.cmi ..\js\src\SchemaDrivenField.bs.js : mij src\SchemaDrivenField.ast
 o src\SchemaDrivenFloat.ast : astj ..\..\src\SchemaDrivenFloat.res
 o src\SchemaDrivenFloat.d : deps src\SchemaDrivenFloat.ast src\SchemaDrivenFloat.iast
 o src\SchemaDrivenFloat.iast : astj ..\..\src\SchemaDrivenFloat.resi
@@ -95,6 +111,9 @@ o src\SchemaDrivenEngine.cmj src\SchemaDrivenEngine.cmi ..\js\src\SchemaDrivenEn
 o src\SchemaDrivenModule.ast : astj ..\..\src\SchemaDrivenModule.res
 o src\SchemaDrivenModule.d : deps src\SchemaDrivenModule.ast
 o src\SchemaDrivenModule.cmj src\SchemaDrivenModule.cmi ..\js\src\SchemaDrivenModule.bs.js : mij src\SchemaDrivenModule.ast
+o src\SchemaDrivenObject.ast : astj ..\..\src\SchemaDrivenObject.res
+o src\SchemaDrivenObject.d : deps src\SchemaDrivenObject.ast
+o src\SchemaDrivenObject.cmj src\SchemaDrivenObject.cmi ..\js\src\SchemaDrivenObject.bs.js : mij src\SchemaDrivenObject.ast
 o src\SchemaDrivenPlugin.ast : astj ..\..\src\SchemaDrivenPlugin.res
 o src\SchemaDrivenPlugin.d : deps src\SchemaDrivenPlugin.ast
 o src\SchemaDrivenPlugin.cmj src\SchemaDrivenPlugin.cmi ..\js\src\SchemaDrivenPlugin.bs.js : mij src\SchemaDrivenPlugin.ast

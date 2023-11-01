@@ -11,9 +11,16 @@ let eng =
   )->Belt.Result.getExn
 
 let testOptionInt = optionNull("TestOptionInt", int, eng)->Result.getExn
+let testOptionStr = optionNull("TestOptionStr", string, eng)->Result.getExn
 let testPerson =
   record(
     "Test-Person",
-    [ObjectProp("id", int), ObjectProp("ages", testOptionInt), ObjectProp("name", string)],
+    [Field("id", int), Field("ages", testOptionInt), Field("name", string)],
+    eng,
+  )->Result.getExn
+let testProfile =
+  object(
+    "Test Profile",
+    [Field("person", testPerson), Field("descr", testOptionStr)],
     eng,
   )->Result.getExn

@@ -1,10 +1,12 @@
-14
+16
 SchemaDriven
 SchemaDrivenInt
 SchemaDrivenBool
+SchemaDrivenField
 SchemaDrivenFloat
 SchemaDrivenEngine
 SchemaDrivenModule
+SchemaDrivenObject
 SchemaDrivenPlugin
 SchemaDrivenRecord
 SchemaDrivenString
@@ -14,11 +16,14 @@ SchemaDrivenNamesCorrector
 SchemaDrivenRescriptStructPlugin
 SchemaDrivenUnexpectedFilesStrategy
 src	
-1
-11
+1
+14
 TestPerson
+TestProfile
 TestOptionInt
+TestOptionStr
 TestPersonTest
+TestProfileTest
 SchemaDrivenTest
 TestOptionIntTest
 SchemaDrivenIntTest
@@ -28,4 +33,4 @@ SchemaDrivenModuleTest
 SchemaDrivenStringTest
 SchemaDrivenNamesCorrectorTest
 _generated	_generated-test	test-schema	test-src	
-1
+1

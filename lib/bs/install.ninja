@@ -19,6 +19,10 @@ o SchemaDrivenBool.cmt : cp ..\bs\src\SchemaDrivenBool.cmt
 o SchemaDrivenBool.res : cp ..\..\src\SchemaDrivenBool.res
 o SchemaDrivenBool.resi : cp ..\..\src\SchemaDrivenBool.resi
 o SchemaDrivenBool.cmti : cp ..\bs\src\SchemaDrivenBool.cmti
+o SchemaDrivenField.cmi : cp ..\bs\src\SchemaDrivenField.cmi
+o SchemaDrivenField.cmj : cp ..\bs\src\SchemaDrivenField.cmj
+o SchemaDrivenField.cmt : cp ..\bs\src\SchemaDrivenField.cmt
+o SchemaDrivenField.res : cp ..\..\src\SchemaDrivenField.res
 o SchemaDrivenFloat.cmi : cp ..\bs\src\SchemaDrivenFloat.cmi
 o SchemaDrivenFloat.cmj : cp ..\bs\src\SchemaDrivenFloat.cmj
 o SchemaDrivenFloat.cmt : cp ..\bs\src\SchemaDrivenFloat.cmt
@@ -33,6 +37,10 @@ o SchemaDrivenModule.cmi : cp ..\bs\src\SchemaDrivenModule.cmi
 o SchemaDrivenModule.cmj : cp ..\bs\src\SchemaDrivenModule.cmj
 o SchemaDrivenModule.cmt : cp ..\bs\src\SchemaDrivenModule.cmt
 o SchemaDrivenModule.res : cp ..\..\src\SchemaDrivenModule.res
+o SchemaDrivenObject.cmi : cp ..\bs\src\SchemaDrivenObject.cmi
+o SchemaDrivenObject.cmj : cp ..\bs\src\SchemaDrivenObject.cmj
+o SchemaDrivenObject.cmt : cp ..\bs\src\SchemaDrivenObject.cmt
+o SchemaDrivenObject.res : cp ..\..\src\SchemaDrivenObject.res
 o SchemaDrivenPlugin.cmi : cp ..\bs\src\SchemaDrivenPlugin.cmi
 o SchemaDrivenPlugin.cmj : cp ..\bs\src\SchemaDrivenPlugin.cmj
 o SchemaDrivenPlugin.cmt : cp ..\bs\src\SchemaDrivenPlugin.cmt
@@ -67,4 +75,4 @@ o SchemaDrivenUnexpectedFilesStrategy.cmi : cp ..\bs\src\SchemaDrivenUnexpectedF
 o SchemaDrivenUnexpectedFilesStrategy.cmj : cp ..\bs\src\SchemaDrivenUnexpectedFilesStrategy.cmj
 o SchemaDrivenUnexpectedFilesStrategy.cmt : cp ..\bs\src\SchemaDrivenUnexpectedFilesStrategy.cmt
 o SchemaDrivenUnexpectedFilesStrategy.res : cp ..\..\src\SchemaDrivenUnexpectedFilesStrategy.res
-build install.stamp : touch SchemaDriven.cmi SchemaDriven.cmj SchemaDrivenInt.cmi SchemaDrivenInt.cmj SchemaDrivenBool.cmi SchemaDrivenBool.cmj SchemaDrivenFloat.cmi SchemaDrivenFloat.cmj SchemaDrivenEngine.cmi SchemaDrivenEngine.cmj SchemaDrivenModule.cmi SchemaDrivenModule.cmj SchemaDrivenPlugin.cmi SchemaDrivenPlugin.cmj SchemaDrivenRecord.cmi SchemaDrivenRecord.cmj SchemaDrivenString.cmi SchemaDrivenString.cmj SchemaDrivenOptionNull.cmi SchemaDrivenOptionNull.cmj SchemaDrivenResultCode.cmi SchemaDrivenResultCode.cmj SchemaDrivenNamesCorrector.cmi SchemaDrivenNamesCorrector.cmj SchemaDrivenRescriptStructPlugin.cmi SchemaDrivenRescriptStructPlugin.cmj SchemaDrivenUnexpectedFilesStrategy.cmi SchemaDrivenUnexpectedFilesStrategy.cmj 
+build install.stamp : touch SchemaDriven.cmi SchemaDriven.cmj SchemaDrivenInt.cmi SchemaDrivenInt.cmj SchemaDrivenBool.cmi SchemaDrivenBool.cmj SchemaDrivenField.cmi SchemaDrivenField.cmj SchemaDrivenFloat.cmi SchemaDrivenFloat.cmj SchemaDrivenEngine.cmi SchemaDrivenEngine.cmj SchemaDrivenModule.cmi SchemaDrivenModule.cmj SchemaDrivenObject.cmi SchemaDrivenObject.cmj SchemaDrivenPlugin.cmi SchemaDrivenPlugin.cmj SchemaDrivenRecord.cmi SchemaDrivenRecord.cmj SchemaDrivenString.cmi SchemaDrivenString.cmj SchemaDrivenOptionNull.cmi SchemaDrivenOptionNull.cmj SchemaDrivenResultCode.cmi SchemaDrivenResultCode.cmj SchemaDrivenNamesCorrector.cmi SchemaDrivenNamesCorrector.cmj SchemaDrivenRescriptStructPlugin.cmi SchemaDrivenRescriptStructPlugin.cmj SchemaDrivenUnexpectedFilesStrategy.cmi SchemaDrivenUnexpectedFilesStrategy.cmj 
