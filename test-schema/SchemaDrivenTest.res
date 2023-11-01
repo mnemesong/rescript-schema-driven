@@ -50,3 +50,7 @@ let testVariantLiteral =
   variantLiteral("TestVariantLiteral", ["Banana", "Orange", "Apple"], eng)->Result.getExn
 
 let testTupleN = tupleN("TestTupleN", [string, testPersonRec, testOptionInt], eng)->Result.getExn
+
+let testArray = array("TestArray", string, eng)->Result.getExn
+
+let testList = list("TestList", float, eng)->Result.getExn

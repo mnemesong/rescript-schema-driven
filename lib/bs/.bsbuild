@@ -1,7 +1,9 @@
-21
+23
 SchemaDriven
 SchemaDrivenInt
 SchemaDrivenBool
+SchemaDrivenList
+SchemaDrivenArray
 SchemaDrivenField
 SchemaDrivenFloat
 SchemaDrivenEngine
@@ -21,11 +23,15 @@ SchemaDrivenVariantContainer
 SchemaDrivenRescriptStructPlugin
 SchemaDrivenUnexpectedFilesStrategy
 src	
-1
-24
+1
+28
+TestList
+TestArray
 TestPerson
 TestTupleN
 TestProfile
+TestListTest
+TestArrayTest
 TestOptionInt
 TestOptionStr
 TestPersonTest
@@ -48,4 +54,4 @@ TestVariantLiteralTest
 TestVariantContainerTest
 SchemaDrivenNamesCorrectorTest
 _generated	_generated-test	test-schema	test-src	
-1
+1

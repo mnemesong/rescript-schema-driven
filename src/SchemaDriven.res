@@ -91,3 +91,23 @@ let variantLiteral = (
     engine,
     moduleName,
   )
+
+let array = (
+  moduleName: string,
+  t: schemaDrivenModule,
+  engine: SchemaDrivenEngine.schemaDrivenEngine,
+) =>
+  SchemaDrivenArray.makeResultCode(moduleName, t) |> SchemaDrivenEngine.printModule(
+    engine,
+    moduleName,
+  )
+
+let list = (
+  moduleName: string,
+  t: schemaDrivenModule,
+  engine: SchemaDrivenEngine.schemaDrivenEngine,
+) =>
+  SchemaDrivenList.makeResultCode(moduleName, t) |> SchemaDrivenEngine.printModule(
+    engine,
+    moduleName,
+  )
