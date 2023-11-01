@@ -1,31 +1,51 @@
 open RescriptMocha
 open Mocha
-open TestOptionInt
+open TestPerson
 
-describe("TestOptionIntTest", () => {
+describe("TestPersonTest", () => {
   describe("test parse", () => {
     it(
       "test valid 1",
       () => {
-        let given = %raw(`12`)
+        let given = %raw(`{
+          id: 5,
+          ages: 8,
+          name: "John"
+        }`)
         let result = parse(given)
-        let nominal = Ok(Some(12))
+        let nominal = Ok({
+          id: 5,
+          ages: Some(8),
+          name: "John",
+        })
         Assert.deep_equal(result, nominal)
       },
     )
     it(
       "test valid 2",
       () => {
-        let given = %raw(`null`)
+        let given = %raw(`{
+          id: 5,
+          ages: null,
+          name: ""
+        }`)
         let result = parse(given)
-        let nominal = Ok(None)
+        let nominal = Ok({
+          id: 5,
+          ages: None,
+          name: "",
+        })
         Assert.deep_equal(result, nominal)
       },
     )
     it(
       "test invalid",
       () => {
-        let given = %raw(`"sdas"`)
+        let given = %raw(`{
+          id: 5,
+          ages: "dsasf",
+          name: ""
+        }`)
         let result = parse(given)
         Assert.ok(result->Belt.Result.isError)
       },
@@ -36,18 +56,19 @@ describe("TestOptionIntTest", () => {
     it(
       "test valid 1",
       () => {
-        let given = Some(12)
+        let given = {
+          id: 5,
+          ages: Some(8),
+          name: "John",
+        }
         let result = serialize(given)
-        let nominal = Ok(%raw(`12`))
-        Assert.deep_equal(result, nominal)
-      },
-    )
-    it(
-      "test valid 2",
-      () => {
-        let given = None
-        let result = serialize(given)
-        let nominal = Ok(%raw(`null`))
+        let nominal = Ok(
+          %raw(`{
+          id: 5,
+          ages: 8,
+          name: "John"
+        }`),
+        )
         Assert.deep_equal(result, nominal)
       },
     )
@@ -57,7 +78,11 @@ describe("TestOptionIntTest", () => {
     it(
       "test valid 1",
       () => {
-        let given = Some(12)
+        let given = {
+          id: 5,
+          ages: Some(8),
+          name: "John",
+        }
         let result = given->serializeToJson->ResultExn.flatMap(j => j->parseJson)
         Assert.deep_equal(result, Ok(given))
       },
@@ -65,7 +90,11 @@ describe("TestOptionIntTest", () => {
     it(
       "test valid 2",
       () => {
-        let given = None
+        let given = {
+          id: 5,
+          ages: None,
+          name: "",
+        }
         let result = given->serializeToJson->ResultExn.flatMap(j => j->parseJson)
         Assert.deep_equal(result, Ok(given))
       },
