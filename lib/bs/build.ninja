@@ -4,28 +4,31 @@ g_finger := D:\rescript-projects\rescript-schema-driven\node_modules\rescript-st
 g_finger := D:\rescript-projects\rescript-schema-driven\node_modules\rescript-mocha\lib\ocaml\install.stamp
 rule astj
   command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe"  -bs-v 10.1.4 -open RescriptStruct -absname -bs-ast -o $out $i
-o _generated\TestOptionInt.ast : astj ..\..\_generated\TestOptionInt.res
+o _generated-test\TestOptionIntTest.ast : astj ..\..\_generated-test\TestOptionIntTest.res
 rule deps_dev
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash df908dd766916a89ab040e8100383c6e $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash 587a2a01135dbbded2c81b7177325a70 $in
   restat = 1
+o _generated-test\TestOptionIntTest.d : deps_dev _generated-test\TestOptionIntTest.ast
+rule mij_dev
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe" -I test-src -I test-schema -I _generated -I _generated-test -I src -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-result-exn\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-struct\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-mocha\lib\ocaml" -open RescriptStruct  -bs-package-name rescript-schema-driven -bs-package-output commonjs:lib\js\$in_d:.bs.js -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o _generated-test\TestOptionIntTest.cmj _generated-test\TestOptionIntTest.cmi ..\js\_generated-test\TestOptionIntTest.bs.js : mij_dev _generated-test\TestOptionIntTest.ast
+o _generated\TestOptionInt.ast : astj ..\..\_generated\TestOptionInt.res
 o _generated\TestOptionInt.d : deps_dev _generated\TestOptionInt.ast _generated\TestOptionInt.iast
 o _generated\TestOptionInt.iast : astj ..\..\_generated\TestOptionInt.resi
 rule mi_dev
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe" -I test-src -I test-schema -I _generated -I src -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-result-exn\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-struct\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-mocha\lib\ocaml" -open RescriptStruct  -bs-v $g_finger $i
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe" -I test-src -I test-schema -I _generated -I _generated-test -I src -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-result-exn\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-struct\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-mocha\lib\ocaml" -open RescriptStruct  -bs-v $g_finger $i
   dyndep = 1
   restat = 1
 o _generated\TestOptionInt.cmi : mi_dev _generated\TestOptionInt.iast
 rule mj_dev
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe" -bs-read-cmi -I test-src -I test-schema -I _generated -I src -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-result-exn\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-struct\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-mocha\lib\ocaml" -open RescriptStruct  -bs-package-name rescript-schema-driven -bs-package-output commonjs:lib\js\$in_d:.bs.js -bs-v $g_finger $i
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe" -bs-read-cmi -I test-src -I test-schema -I _generated -I _generated-test -I src -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-result-exn\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-struct\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-mocha\lib\ocaml" -open RescriptStruct  -bs-package-name rescript-schema-driven -bs-package-output commonjs:lib\js\$in_d:.bs.js -bs-v $g_finger $i
   dyndep = 1
   restat = 1
 o _generated\TestOptionInt.cmj ..\js\_generated\TestOptionInt.bs.js : mj_dev _generated\TestOptionInt.ast _generated\TestOptionInt.cmi
 o test-schema\SchemaDrivenTest.ast : astj ..\..\test-schema\SchemaDrivenTest.res
 o test-schema\SchemaDrivenTest.d : deps_dev test-schema\SchemaDrivenTest.ast
-rule mij_dev
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe" -I test-src -I test-schema -I _generated -I src -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-result-exn\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-struct\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-mocha\lib\ocaml" -open RescriptStruct  -bs-package-name rescript-schema-driven -bs-package-output commonjs:lib\js\$in_d:.bs.js -bs-v $g_finger $i
-  dyndep = 1
-  restat = 1
 o test-schema\SchemaDrivenTest.cmj test-schema\SchemaDrivenTest.cmi ..\js\test-schema\SchemaDrivenTest.bs.js : mij_dev test-schema\SchemaDrivenTest.ast
 o test-src\SchemaDrivenIntTest.ast : astj ..\..\test-src\SchemaDrivenIntTest.res
 o test-src\SchemaDrivenIntTest.d : deps_dev test-src\SchemaDrivenIntTest.ast
@@ -47,7 +50,7 @@ o test-src\SchemaDrivenNamesCorrectorTest.d : deps_dev test-src\SchemaDrivenName
 o test-src\SchemaDrivenNamesCorrectorTest.cmj test-src\SchemaDrivenNamesCorrectorTest.cmi ..\js\test-src\SchemaDrivenNamesCorrectorTest.bs.js : mij_dev test-src\SchemaDrivenNamesCorrectorTest.ast
 o src\SchemaDriven.ast : astj ..\..\src\SchemaDriven.res
 rule deps
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash df908dd766916a89ab040e8100383c6e $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash 587a2a01135dbbded2c81b7177325a70 $in
   restat = 1
 o src\SchemaDriven.d : deps src\SchemaDriven.ast
 rule mij
