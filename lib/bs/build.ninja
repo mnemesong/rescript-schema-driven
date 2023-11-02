@@ -148,24 +148,22 @@ o src\SchemaDriven.ast : astj ..\..\src\SchemaDriven.res
 rule deps
   command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash 8c35e5e48d2ed6d197736e84f0d6e88c $in
   restat = 1
-o src\SchemaDriven.d : deps src\SchemaDriven.ast
-rule mij
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe" -I src -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-result-exn\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-struct\lib\ocaml" -open RescriptStruct  -bs-package-name rescript-schema-driven -bs-package-output commonjs:lib\js\$in_d:.bs.js -bs-v $g_finger $i
-  dyndep = 1
-  restat = 1
-o src\SchemaDriven.cmj src\SchemaDriven.cmi ..\js\src\SchemaDriven.bs.js : mij src\SchemaDriven.ast
-o src\SchemaDrivenInt.ast : astj ..\..\src\SchemaDrivenInt.res
-o src\SchemaDrivenInt.d : deps src\SchemaDrivenInt.ast src\SchemaDrivenInt.iast
-o src\SchemaDrivenInt.iast : astj ..\..\src\SchemaDrivenInt.resi
+o src\SchemaDriven.d : deps src\SchemaDriven.ast src\SchemaDriven.iast
+o src\SchemaDriven.iast : astj ..\..\src\SchemaDriven.resi
 rule mi
   command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe" -I src -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-result-exn\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-struct\lib\ocaml" -open RescriptStruct  -bs-v $g_finger $i
   dyndep = 1
   restat = 1
-o src\SchemaDrivenInt.cmi : mi src\SchemaDrivenInt.iast
+o src\SchemaDriven.cmi : mi src\SchemaDriven.iast
 rule mj
   command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe" -bs-read-cmi -I src -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-result-exn\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-struct\lib\ocaml" -open RescriptStruct  -bs-package-name rescript-schema-driven -bs-package-output commonjs:lib\js\$in_d:.bs.js -bs-v $g_finger $i
   dyndep = 1
   restat = 1
+o src\SchemaDriven.cmj ..\js\src\SchemaDriven.bs.js : mj src\SchemaDriven.ast src\SchemaDriven.cmi
+o src\SchemaDrivenInt.ast : astj ..\..\src\SchemaDrivenInt.res
+o src\SchemaDrivenInt.d : deps src\SchemaDrivenInt.ast src\SchemaDrivenInt.iast
+o src\SchemaDrivenInt.iast : astj ..\..\src\SchemaDrivenInt.resi
+o src\SchemaDrivenInt.cmi : mi src\SchemaDrivenInt.iast
 o src\SchemaDrivenInt.cmj ..\js\src\SchemaDrivenInt.bs.js : mj src\SchemaDrivenInt.ast src\SchemaDrivenInt.cmi
 o src\SchemaDrivenBool.ast : astj ..\..\src\SchemaDrivenBool.res
 o src\SchemaDrivenBool.d : deps src\SchemaDrivenBool.ast src\SchemaDrivenBool.iast
@@ -173,74 +171,112 @@ o src\SchemaDrivenBool.iast : astj ..\..\src\SchemaDrivenBool.resi
 o src\SchemaDrivenBool.cmi : mi src\SchemaDrivenBool.iast
 o src\SchemaDrivenBool.cmj ..\js\src\SchemaDrivenBool.bs.js : mj src\SchemaDrivenBool.ast src\SchemaDrivenBool.cmi
 o src\SchemaDrivenDict.ast : astj ..\..\src\SchemaDrivenDict.res
-o src\SchemaDrivenDict.d : deps src\SchemaDrivenDict.ast
-o src\SchemaDrivenDict.cmj src\SchemaDrivenDict.cmi ..\js\src\SchemaDrivenDict.bs.js : mij src\SchemaDrivenDict.ast
+o src\SchemaDrivenDict.d : deps src\SchemaDrivenDict.ast src\SchemaDrivenDict.iast
+o src\SchemaDrivenDict.iast : astj ..\..\src\SchemaDrivenDict.resi
+o src\SchemaDrivenDict.cmi : mi src\SchemaDrivenDict.iast
+o src\SchemaDrivenDict.cmj ..\js\src\SchemaDrivenDict.bs.js : mj src\SchemaDrivenDict.ast src\SchemaDrivenDict.cmi
 o src\SchemaDrivenList.ast : astj ..\..\src\SchemaDrivenList.res
-o src\SchemaDrivenList.d : deps src\SchemaDrivenList.ast
-o src\SchemaDrivenList.cmj src\SchemaDrivenList.cmi ..\js\src\SchemaDrivenList.bs.js : mij src\SchemaDrivenList.ast
+o src\SchemaDrivenList.d : deps src\SchemaDrivenList.ast src\SchemaDrivenList.iast
+o src\SchemaDrivenList.iast : astj ..\..\src\SchemaDrivenList.resi
+o src\SchemaDrivenList.cmi : mi src\SchemaDrivenList.iast
+o src\SchemaDrivenList.cmj ..\js\src\SchemaDrivenList.bs.js : mj src\SchemaDrivenList.ast src\SchemaDrivenList.cmi
 o src\SchemaDrivenArray.ast : astj ..\..\src\SchemaDrivenArray.res
-o src\SchemaDrivenArray.d : deps src\SchemaDrivenArray.ast
-o src\SchemaDrivenArray.cmj src\SchemaDrivenArray.cmi ..\js\src\SchemaDrivenArray.bs.js : mij src\SchemaDrivenArray.ast
+o src\SchemaDrivenArray.d : deps src\SchemaDrivenArray.ast src\SchemaDrivenArray.iast
+o src\SchemaDrivenArray.iast : astj ..\..\src\SchemaDrivenArray.resi
+o src\SchemaDrivenArray.cmi : mi src\SchemaDrivenArray.iast
+o src\SchemaDrivenArray.cmj ..\js\src\SchemaDrivenArray.bs.js : mj src\SchemaDrivenArray.ast src\SchemaDrivenArray.cmi
 o src\SchemaDrivenFloat.ast : astj ..\..\src\SchemaDrivenFloat.res
 o src\SchemaDrivenFloat.d : deps src\SchemaDrivenFloat.ast src\SchemaDrivenFloat.iast
 o src\SchemaDrivenFloat.iast : astj ..\..\src\SchemaDrivenFloat.resi
 o src\SchemaDrivenFloat.cmi : mi src\SchemaDrivenFloat.iast
 o src\SchemaDrivenFloat.cmj ..\js\src\SchemaDrivenFloat.bs.js : mj src\SchemaDrivenFloat.ast src\SchemaDrivenFloat.cmi
 o src\SchemaDrivenEngine.ast : astj ..\..\src\SchemaDrivenEngine.res
-o src\SchemaDrivenEngine.d : deps src\SchemaDrivenEngine.ast
-o src\SchemaDrivenEngine.cmj src\SchemaDrivenEngine.cmi ..\js\src\SchemaDrivenEngine.bs.js : mij src\SchemaDrivenEngine.ast
+o src\SchemaDrivenEngine.d : deps src\SchemaDrivenEngine.ast src\SchemaDrivenEngine.iast
+o src\SchemaDrivenEngine.iast : astj ..\..\src\SchemaDrivenEngine.resi
+o src\SchemaDrivenEngine.cmi : mi src\SchemaDrivenEngine.iast
+o src\SchemaDrivenEngine.cmj ..\js\src\SchemaDrivenEngine.bs.js : mj src\SchemaDrivenEngine.ast src\SchemaDrivenEngine.cmi
 o src\SchemaDrivenHelper.ast : astj ..\..\src\SchemaDrivenHelper.res
-o src\SchemaDrivenHelper.d : deps src\SchemaDrivenHelper.ast
-o src\SchemaDrivenHelper.cmj src\SchemaDrivenHelper.cmi ..\js\src\SchemaDrivenHelper.bs.js : mij src\SchemaDrivenHelper.ast
+o src\SchemaDrivenHelper.d : deps src\SchemaDrivenHelper.ast src\SchemaDrivenHelper.iast
+o src\SchemaDrivenHelper.iast : astj ..\..\src\SchemaDrivenHelper.resi
+o src\SchemaDrivenHelper.cmi : mi src\SchemaDrivenHelper.iast
+o src\SchemaDrivenHelper.cmj ..\js\src\SchemaDrivenHelper.bs.js : mj src\SchemaDrivenHelper.ast src\SchemaDrivenHelper.cmi
 o src\SchemaDrivenModule.ast : astj ..\..\src\SchemaDrivenModule.res
-o src\SchemaDrivenModule.d : deps src\SchemaDrivenModule.ast
-o src\SchemaDrivenModule.cmj src\SchemaDrivenModule.cmi ..\js\src\SchemaDrivenModule.bs.js : mij src\SchemaDrivenModule.ast
+o src\SchemaDrivenModule.d : deps src\SchemaDrivenModule.ast src\SchemaDrivenModule.iast
+o src\SchemaDrivenModule.iast : astj ..\..\src\SchemaDrivenModule.resi
+o src\SchemaDrivenModule.cmi : mi src\SchemaDrivenModule.iast
+o src\SchemaDrivenModule.cmj ..\js\src\SchemaDrivenModule.bs.js : mj src\SchemaDrivenModule.ast src\SchemaDrivenModule.cmi
 o src\SchemaDrivenObject.ast : astj ..\..\src\SchemaDrivenObject.res
-o src\SchemaDrivenObject.d : deps src\SchemaDrivenObject.ast
-o src\SchemaDrivenObject.cmj src\SchemaDrivenObject.cmi ..\js\src\SchemaDrivenObject.bs.js : mij src\SchemaDrivenObject.ast
+o src\SchemaDrivenObject.d : deps src\SchemaDrivenObject.ast src\SchemaDrivenObject.iast
+o src\SchemaDrivenObject.iast : astj ..\..\src\SchemaDrivenObject.resi
+o src\SchemaDrivenObject.cmi : mi src\SchemaDrivenObject.iast
+o src\SchemaDrivenObject.cmj ..\js\src\SchemaDrivenObject.bs.js : mj src\SchemaDrivenObject.ast src\SchemaDrivenObject.cmi
 o src\SchemaDrivenPlugin.ast : astj ..\..\src\SchemaDrivenPlugin.res
-o src\SchemaDrivenPlugin.d : deps src\SchemaDrivenPlugin.ast
-o src\SchemaDrivenPlugin.cmj src\SchemaDrivenPlugin.cmi ..\js\src\SchemaDrivenPlugin.bs.js : mij src\SchemaDrivenPlugin.ast
+o src\SchemaDrivenPlugin.d : deps src\SchemaDrivenPlugin.ast src\SchemaDrivenPlugin.iast
+o src\SchemaDrivenPlugin.iast : astj ..\..\src\SchemaDrivenPlugin.resi
+o src\SchemaDrivenPlugin.cmi : mi src\SchemaDrivenPlugin.iast
+o src\SchemaDrivenPlugin.cmj ..\js\src\SchemaDrivenPlugin.bs.js : mj src\SchemaDrivenPlugin.ast src\SchemaDrivenPlugin.cmi
 o src\SchemaDrivenRecord.ast : astj ..\..\src\SchemaDrivenRecord.res
-o src\SchemaDrivenRecord.d : deps src\SchemaDrivenRecord.ast
-o src\SchemaDrivenRecord.cmj src\SchemaDrivenRecord.cmi ..\js\src\SchemaDrivenRecord.bs.js : mij src\SchemaDrivenRecord.ast
+o src\SchemaDrivenRecord.d : deps src\SchemaDrivenRecord.ast src\SchemaDrivenRecord.iast
+o src\SchemaDrivenRecord.iast : astj ..\..\src\SchemaDrivenRecord.resi
+o src\SchemaDrivenRecord.cmi : mi src\SchemaDrivenRecord.iast
+o src\SchemaDrivenRecord.cmj ..\js\src\SchemaDrivenRecord.bs.js : mj src\SchemaDrivenRecord.ast src\SchemaDrivenRecord.cmi
 o src\SchemaDrivenString.ast : astj ..\..\src\SchemaDrivenString.res
 o src\SchemaDrivenString.d : deps src\SchemaDrivenString.ast src\SchemaDrivenString.iast
 o src\SchemaDrivenString.iast : astj ..\..\src\SchemaDrivenString.resi
 o src\SchemaDrivenString.cmi : mi src\SchemaDrivenString.iast
 o src\SchemaDrivenString.cmj ..\js\src\SchemaDrivenString.bs.js : mj src\SchemaDrivenString.ast src\SchemaDrivenString.cmi
 o src\SchemaDrivenTupleN.ast : astj ..\..\src\SchemaDrivenTupleN.res
-o src\SchemaDrivenTupleN.d : deps src\SchemaDrivenTupleN.ast
-o src\SchemaDrivenTupleN.cmj src\SchemaDrivenTupleN.cmi ..\js\src\SchemaDrivenTupleN.bs.js : mij src\SchemaDrivenTupleN.ast
+o src\SchemaDrivenTupleN.d : deps src\SchemaDrivenTupleN.ast src\SchemaDrivenTupleN.iast
+o src\SchemaDrivenTupleN.iast : astj ..\..\src\SchemaDrivenTupleN.resi
+o src\SchemaDrivenTupleN.cmi : mi src\SchemaDrivenTupleN.iast
+o src\SchemaDrivenTupleN.cmj ..\js\src\SchemaDrivenTupleN.bs.js : mj src\SchemaDrivenTupleN.ast src\SchemaDrivenTupleN.cmi
 o src\SchemaDrivenUnknown.ast : astj ..\..\src\SchemaDrivenUnknown.res
 o src\SchemaDrivenUnknown.d : deps src\SchemaDrivenUnknown.ast src\SchemaDrivenUnknown.iast
 o src\SchemaDrivenUnknown.iast : astj ..\..\src\SchemaDrivenUnknown.resi
 o src\SchemaDrivenUnknown.cmi : mi src\SchemaDrivenUnknown.iast
 o src\SchemaDrivenUnknown.cmj ..\js\src\SchemaDrivenUnknown.bs.js : mj src\SchemaDrivenUnknown.ast src\SchemaDrivenUnknown.cmi
 o src\SchemaDrivenOptionNull.ast : astj ..\..\src\SchemaDrivenOptionNull.res
-o src\SchemaDrivenOptionNull.d : deps src\SchemaDrivenOptionNull.ast
-o src\SchemaDrivenOptionNull.cmj src\SchemaDrivenOptionNull.cmi ..\js\src\SchemaDrivenOptionNull.bs.js : mij src\SchemaDrivenOptionNull.ast
+o src\SchemaDrivenOptionNull.d : deps src\SchemaDrivenOptionNull.ast src\SchemaDrivenOptionNull.iast
+o src\SchemaDrivenOptionNull.iast : astj ..\..\src\SchemaDrivenOptionNull.resi
+o src\SchemaDrivenOptionNull.cmi : mi src\SchemaDrivenOptionNull.iast
+o src\SchemaDrivenOptionNull.cmj ..\js\src\SchemaDrivenOptionNull.bs.js : mj src\SchemaDrivenOptionNull.ast src\SchemaDrivenOptionNull.cmi
 o src\SchemaDrivenResultCode.ast : astj ..\..\src\SchemaDrivenResultCode.res
-o src\SchemaDrivenResultCode.d : deps src\SchemaDrivenResultCode.ast
-o src\SchemaDrivenResultCode.cmj src\SchemaDrivenResultCode.cmi ..\js\src\SchemaDrivenResultCode.bs.js : mij src\SchemaDrivenResultCode.ast
+o src\SchemaDrivenResultCode.d : deps src\SchemaDrivenResultCode.ast src\SchemaDrivenResultCode.iast
+o src\SchemaDrivenResultCode.iast : astj ..\..\src\SchemaDrivenResultCode.resi
+o src\SchemaDrivenResultCode.cmi : mi src\SchemaDrivenResultCode.iast
+o src\SchemaDrivenResultCode.cmj ..\js\src\SchemaDrivenResultCode.bs.js : mj src\SchemaDrivenResultCode.ast src\SchemaDrivenResultCode.cmi
 o src\SchemaDrivenTupleObject.ast : astj ..\..\src\SchemaDrivenTupleObject.res
-o src\SchemaDrivenTupleObject.d : deps src\SchemaDrivenTupleObject.ast
-o src\SchemaDrivenTupleObject.cmj src\SchemaDrivenTupleObject.cmi ..\js\src\SchemaDrivenTupleObject.bs.js : mij src\SchemaDrivenTupleObject.ast
+o src\SchemaDrivenTupleObject.d : deps src\SchemaDrivenTupleObject.ast src\SchemaDrivenTupleObject.iast
+o src\SchemaDrivenTupleObject.iast : astj ..\..\src\SchemaDrivenTupleObject.resi
+o src\SchemaDrivenTupleObject.cmi : mi src\SchemaDrivenTupleObject.iast
+o src\SchemaDrivenTupleObject.cmj ..\js\src\SchemaDrivenTupleObject.bs.js : mj src\SchemaDrivenTupleObject.ast src\SchemaDrivenTupleObject.cmi
 o src\SchemaDrivenVariantObject.ast : astj ..\..\src\SchemaDrivenVariantObject.res
-o src\SchemaDrivenVariantObject.d : deps src\SchemaDrivenVariantObject.ast
-o src\SchemaDrivenVariantObject.cmj src\SchemaDrivenVariantObject.cmi ..\js\src\SchemaDrivenVariantObject.bs.js : mij src\SchemaDrivenVariantObject.ast
+o src\SchemaDrivenVariantObject.d : deps src\SchemaDrivenVariantObject.ast src\SchemaDrivenVariantObject.iast
+o src\SchemaDrivenVariantObject.iast : astj ..\..\src\SchemaDrivenVariantObject.resi
+o src\SchemaDrivenVariantObject.cmi : mi src\SchemaDrivenVariantObject.iast
+o src\SchemaDrivenVariantObject.cmj ..\js\src\SchemaDrivenVariantObject.bs.js : mj src\SchemaDrivenVariantObject.ast src\SchemaDrivenVariantObject.cmi
 o src\SchemaDrivenNamesCorrector.ast : astj ..\..\src\SchemaDrivenNamesCorrector.res
-o src\SchemaDrivenNamesCorrector.d : deps src\SchemaDrivenNamesCorrector.ast
-o src\SchemaDrivenNamesCorrector.cmj src\SchemaDrivenNamesCorrector.cmi ..\js\src\SchemaDrivenNamesCorrector.bs.js : mij src\SchemaDrivenNamesCorrector.ast
+o src\SchemaDrivenNamesCorrector.d : deps src\SchemaDrivenNamesCorrector.ast src\SchemaDrivenNamesCorrector.iast
+o src\SchemaDrivenNamesCorrector.iast : astj ..\..\src\SchemaDrivenNamesCorrector.resi
+o src\SchemaDrivenNamesCorrector.cmi : mi src\SchemaDrivenNamesCorrector.iast
+o src\SchemaDrivenNamesCorrector.cmj ..\js\src\SchemaDrivenNamesCorrector.bs.js : mj src\SchemaDrivenNamesCorrector.ast src\SchemaDrivenNamesCorrector.cmi
 o src\SchemaDrivenVariantLiteral.ast : astj ..\..\src\SchemaDrivenVariantLiteral.res
-o src\SchemaDrivenVariantLiteral.d : deps src\SchemaDrivenVariantLiteral.ast
-o src\SchemaDrivenVariantLiteral.cmj src\SchemaDrivenVariantLiteral.cmi ..\js\src\SchemaDrivenVariantLiteral.bs.js : mij src\SchemaDrivenVariantLiteral.ast
+o src\SchemaDrivenVariantLiteral.d : deps src\SchemaDrivenVariantLiteral.ast src\SchemaDrivenVariantLiteral.iast
+o src\SchemaDrivenVariantLiteral.iast : astj ..\..\src\SchemaDrivenVariantLiteral.resi
+o src\SchemaDrivenVariantLiteral.cmi : mi src\SchemaDrivenVariantLiteral.iast
+o src\SchemaDrivenVariantLiteral.cmj ..\js\src\SchemaDrivenVariantLiteral.bs.js : mj src\SchemaDrivenVariantLiteral.ast src\SchemaDrivenVariantLiteral.cmi
 o src\SchemaDrivenVariantContainer.ast : astj ..\..\src\SchemaDrivenVariantContainer.res
-o src\SchemaDrivenVariantContainer.d : deps src\SchemaDrivenVariantContainer.ast
-o src\SchemaDrivenVariantContainer.cmj src\SchemaDrivenVariantContainer.cmi ..\js\src\SchemaDrivenVariantContainer.bs.js : mij src\SchemaDrivenVariantContainer.ast
+o src\SchemaDrivenVariantContainer.d : deps src\SchemaDrivenVariantContainer.ast src\SchemaDrivenVariantContainer.iast
+o src\SchemaDrivenVariantContainer.iast : astj ..\..\src\SchemaDrivenVariantContainer.resi
+o src\SchemaDrivenVariantContainer.cmi : mi src\SchemaDrivenVariantContainer.iast
+o src\SchemaDrivenVariantContainer.cmj ..\js\src\SchemaDrivenVariantContainer.bs.js : mj src\SchemaDrivenVariantContainer.ast src\SchemaDrivenVariantContainer.cmi
 o src\SchemaDrivenRescriptStructPlugin.ast : astj ..\..\src\SchemaDrivenRescriptStructPlugin.res
-o src\SchemaDrivenRescriptStructPlugin.d : deps src\SchemaDrivenRescriptStructPlugin.ast
-o src\SchemaDrivenRescriptStructPlugin.cmj src\SchemaDrivenRescriptStructPlugin.cmi ..\js\src\SchemaDrivenRescriptStructPlugin.bs.js : mij src\SchemaDrivenRescriptStructPlugin.ast
+o src\SchemaDrivenRescriptStructPlugin.d : deps src\SchemaDrivenRescriptStructPlugin.ast src\SchemaDrivenRescriptStructPlugin.iast
+o src\SchemaDrivenRescriptStructPlugin.iast : astj ..\..\src\SchemaDrivenRescriptStructPlugin.resi
+o src\SchemaDrivenRescriptStructPlugin.cmi : mi src\SchemaDrivenRescriptStructPlugin.iast
+o src\SchemaDrivenRescriptStructPlugin.cmj ..\js\src\SchemaDrivenRescriptStructPlugin.bs.js : mj src\SchemaDrivenRescriptStructPlugin.ast src\SchemaDrivenRescriptStructPlugin.cmi
 o src\SchemaDrivenUnexpectedFilesStrategy.ast : astj ..\..\src\SchemaDrivenUnexpectedFilesStrategy.res
-o src\SchemaDrivenUnexpectedFilesStrategy.d : deps src\SchemaDrivenUnexpectedFilesStrategy.ast
-o src\SchemaDrivenUnexpectedFilesStrategy.cmj src\SchemaDrivenUnexpectedFilesStrategy.cmi ..\js\src\SchemaDrivenUnexpectedFilesStrategy.bs.js : mij src\SchemaDrivenUnexpectedFilesStrategy.ast
+o src\SchemaDrivenUnexpectedFilesStrategy.d : deps src\SchemaDrivenUnexpectedFilesStrategy.ast src\SchemaDrivenUnexpectedFilesStrategy.iast
+o src\SchemaDrivenUnexpectedFilesStrategy.iast : astj ..\..\src\SchemaDrivenUnexpectedFilesStrategy.resi
+o src\SchemaDrivenUnexpectedFilesStrategy.cmi : mi src\SchemaDrivenUnexpectedFilesStrategy.iast
+o src\SchemaDrivenUnexpectedFilesStrategy.cmj ..\js\src\SchemaDrivenUnexpectedFilesStrategy.bs.js : mj src\SchemaDrivenUnexpectedFilesStrategy.ast src\SchemaDrivenUnexpectedFilesStrategy.cmi

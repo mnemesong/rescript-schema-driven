@@ -1,1 +1,2 @@
 src\SchemaDrivenEngine.cmj : src\SchemaDrivenModule.cmj src\SchemaDrivenModule.cmi src\SchemaDrivenNamesCorrector.cmj src\SchemaDrivenNamesCorrector.cmi src\SchemaDrivenPlugin.cmj src\SchemaDrivenPlugin.cmi src\SchemaDrivenResultCode.cmj src\SchemaDrivenResultCode.cmi src\SchemaDrivenUnexpectedFilesStrategy.cmj src\SchemaDrivenUnexpectedFilesStrategy.cmi
+src\SchemaDrivenEngine.cmi :  src\SchemaDrivenModule.cmi  src\SchemaDrivenPlugin.cmi  src\SchemaDrivenResultCode.cmi  src\SchemaDrivenUnexpectedFilesStrategy.cmi
