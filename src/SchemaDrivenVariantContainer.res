@@ -1,12 +1,15 @@
 open SchemaDrivenModule
 open SchemaDrivenResultCode
-open SchemaDrivenField
+open SchemaDrivenHelper
 open SchemaDrivenNamesCorrector
 open Belt
 
-let printStruct = (variants: array<field<array<schemaDrivenModule>>>, tagName: string): string => {
+let printStruct = (
+  variants: array<variant<array<schemaDrivenModule>>>,
+  tagName: string,
+): string => {
   let variantRows = variants->Array.map(v => {
-    let Field(varName, types) = v
+    let Variant(varName, types) = v
     let varName' = modifyVariantName(varName)
     let typeRows = Array.mapWithIndex(types, (i, t) => {
       let propName = "t_" ++ i->Int.toString
@@ -24,9 +27,9 @@ ${variantRows->Js.Array2.joinWith(",\n")}
 ])`
 }
 
-let printType = (variants: array<field<array<schemaDrivenModule>>>): string => {
+let printType = (variants: array<variant<array<schemaDrivenModule>>>): string => {
   let variantRows = variants->Array.map(v => {
-    let Field(varName, types) = v
+    let Variant(varName, types) = v
     let typeRows = Array.map(types, t => {
       t->moduleName ++ ".t"
     })
@@ -38,6 +41,6 @@ let printType = (variants: array<field<array<schemaDrivenModule>>>): string => {
 
 let makeResultCode = (
   moduleName: string,
-  variants: array<field<array<schemaDrivenModule>>>,
+  variants: array<variant<array<schemaDrivenModule>>>,
   tagName: string,
 ): resultCodeDeclar => make(moduleName, printType(variants), printStruct(variants, tagName))

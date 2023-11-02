@@ -1,5 +1,8 @@
 open SchemaDrivenModule
 
+type field<'a> = SchemaDrivenHelper.field<'a>
+type variant<'a> = SchemaDrivenHelper.variant<'a>
+
 let defEngine = SchemaDrivenEngine.def
 
 let int = def("SchemaDrivenInt")
@@ -21,8 +24,6 @@ let optionNull = (
     engine,
     moduleName,
   )
-
-type field<'a> = SchemaDrivenField.field<'a>
 
 let record = (
   moduleName: string,
@@ -67,7 +68,7 @@ let tupleObject = (
 let variantObject = (
   ~tagName="TAG",
   moduleName: string,
-  variants: array<field<array<field<schemaDrivenModule>>>>,
+  variants: array<variant<array<field<schemaDrivenModule>>>>,
   engine: SchemaDrivenEngine.schemaDrivenEngine,
 ) =>
   SchemaDrivenVariantObject.makeResultCode(
@@ -79,7 +80,7 @@ let variantObject = (
 let variantContainer = (
   ~tagName="TAG",
   moduleName: string,
-  variants: array<field<array<schemaDrivenModule>>>,
+  variants: array<variant<array<schemaDrivenModule>>>,
   engine: SchemaDrivenEngine.schemaDrivenEngine,
 ) =>
   SchemaDrivenVariantContainer.makeResultCode(

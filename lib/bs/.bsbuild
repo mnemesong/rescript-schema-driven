@@ -5,9 +5,9 @@ SchemaDrivenBool
 SchemaDrivenDict
 SchemaDrivenList
 SchemaDrivenArray
-SchemaDrivenField
 SchemaDrivenFloat
 SchemaDrivenEngine
+SchemaDrivenHelper
 SchemaDrivenModule
 SchemaDrivenObject
 SchemaDrivenPlugin

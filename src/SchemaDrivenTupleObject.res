@@ -1,6 +1,6 @@
 open SchemaDrivenModule
 open SchemaDrivenResultCode
-open SchemaDrivenField
+open SchemaDrivenHelper
 open Belt
 
 let printStruct = (props: array<field<schemaDrivenModule>>): string => {

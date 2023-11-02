@@ -33,8 +33,8 @@ let testVariantObject =
   variantObject(
     "TestVariantObject",
     [
-      Field("circle", [Field("radius", float)]),
-      Field("square", [Field("width", float), Field("height", float)]),
+      Variant("circle", [Field("radius", float)]),
+      Variant("square", [Field("width", float), Field("height", float)]),
     ],
     eng,
   )->Result.getExn
@@ -42,7 +42,7 @@ let testVariantObject =
 let testVariantContainer =
   variantContainer(
     "TestVariantContainer",
-    [Field("var1", [float]), Field("var2", [testOptionStr, float]), Field("var3", [string])],
+    [Variant("var1", [float]), Variant("var2", [testOptionStr, float]), Variant("var3", [string])],
     eng,
   )->Result.getExn
 
@@ -59,7 +59,7 @@ let testDict = dict("TestDict", testOptionStr, eng)->Result.getExn
 
 let crazyTaggedVariant = variantContainer(
   "CrazyTaggedVariant",
-  [Field("Fruit", [testVariantLiteral]), Field("FruitSet", [testArray])],
+  [Variant("Fruit", [testVariantLiteral]), Variant("FruitSet", [testArray])],
   eng,
   ~tagName="crazyTaggedVariant",
 )

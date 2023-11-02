@@ -6,7 +6,7 @@ rule astj
   command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe"  -bs-v 10.1.4 -open RescriptStruct -absname -bs-ast -o $out $i
 o _generated-test\TestDictTest.ast : astj ..\..\_generated-test\TestDictTest.res
 rule deps_dev
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash 5e9f18cb4c2ea3613a6b2e3812dc224b $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash 8c35e5e48d2ed6d197736e84f0d6e88c $in
   restat = 1
 o _generated-test\TestDictTest.d : deps_dev _generated-test\TestDictTest.ast
 rule mij_dev
@@ -146,7 +146,7 @@ o test-src\SchemaDrivenNamesCorrectorTest.d : deps_dev test-src\SchemaDrivenName
 o test-src\SchemaDrivenNamesCorrectorTest.cmj test-src\SchemaDrivenNamesCorrectorTest.cmi ..\js\test-src\SchemaDrivenNamesCorrectorTest.bs.js : mij_dev test-src\SchemaDrivenNamesCorrectorTest.ast
 o src\SchemaDriven.ast : astj ..\..\src\SchemaDriven.res
 rule deps
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash 5e9f18cb4c2ea3613a6b2e3812dc224b $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash 8c35e5e48d2ed6d197736e84f0d6e88c $in
   restat = 1
 o src\SchemaDriven.d : deps src\SchemaDriven.ast
 rule mij
@@ -181,9 +181,6 @@ o src\SchemaDrivenList.cmj src\SchemaDrivenList.cmi ..\js\src\SchemaDrivenList.b
 o src\SchemaDrivenArray.ast : astj ..\..\src\SchemaDrivenArray.res
 o src\SchemaDrivenArray.d : deps src\SchemaDrivenArray.ast
 o src\SchemaDrivenArray.cmj src\SchemaDrivenArray.cmi ..\js\src\SchemaDrivenArray.bs.js : mij src\SchemaDrivenArray.ast
-o src\SchemaDrivenField.ast : astj ..\..\src\SchemaDrivenField.res
-o src\SchemaDrivenField.d : deps src\SchemaDrivenField.ast
-o src\SchemaDrivenField.cmj src\SchemaDrivenField.cmi ..\js\src\SchemaDrivenField.bs.js : mij src\SchemaDrivenField.ast
 o src\SchemaDrivenFloat.ast : astj ..\..\src\SchemaDrivenFloat.res
 o src\SchemaDrivenFloat.d : deps src\SchemaDrivenFloat.ast src\SchemaDrivenFloat.iast
 o src\SchemaDrivenFloat.iast : astj ..\..\src\SchemaDrivenFloat.resi
@@ -192,6 +189,9 @@ o src\SchemaDrivenFloat.cmj ..\js\src\SchemaDrivenFloat.bs.js : mj src\SchemaDri
 o src\SchemaDrivenEngine.ast : astj ..\..\src\SchemaDrivenEngine.res
 o src\SchemaDrivenEngine.d : deps src\SchemaDrivenEngine.ast
 o src\SchemaDrivenEngine.cmj src\SchemaDrivenEngine.cmi ..\js\src\SchemaDrivenEngine.bs.js : mij src\SchemaDrivenEngine.ast
+o src\SchemaDrivenHelper.ast : astj ..\..\src\SchemaDrivenHelper.res
+o src\SchemaDrivenHelper.d : deps src\SchemaDrivenHelper.ast
+o src\SchemaDrivenHelper.cmj src\SchemaDrivenHelper.cmi ..\js\src\SchemaDrivenHelper.bs.js : mij src\SchemaDrivenHelper.ast
 o src\SchemaDrivenModule.ast : astj ..\..\src\SchemaDrivenModule.res
 o src\SchemaDrivenModule.d : deps src\SchemaDrivenModule.ast
 o src\SchemaDrivenModule.cmj src\SchemaDrivenModule.cmi ..\js\src\SchemaDrivenModule.bs.js : mij src\SchemaDrivenModule.ast
