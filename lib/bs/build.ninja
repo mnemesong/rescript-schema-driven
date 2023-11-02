@@ -4,15 +4,18 @@ g_finger := D:\rescript-projects\rescript-schema-driven\node_modules\rescript-st
 g_finger := D:\rescript-projects\rescript-schema-driven\node_modules\rescript-mocha\lib\ocaml\install.stamp
 rule astj
   command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe"  -bs-v 10.1.4 -open RescriptStruct -absname -bs-ast -o $out $i
-o _generated-test\TestListTest.ast : astj ..\..\_generated-test\TestListTest.res
+o _generated-test\TestDictTest.ast : astj ..\..\_generated-test\TestDictTest.res
 rule deps_dev
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash 164176f21c8e25b87f2349cd5ea59da3 $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash e27d8f35827ca509b6e0f138a734d952 $in
   restat = 1
-o _generated-test\TestListTest.d : deps_dev _generated-test\TestListTest.ast
+o _generated-test\TestDictTest.d : deps_dev _generated-test\TestDictTest.ast
 rule mij_dev
   command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe" -I test-src -I test-schema -I _generated -I _generated-test -I src -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-result-exn\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-struct\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-mocha\lib\ocaml" -open RescriptStruct  -bs-package-name rescript-schema-driven -bs-package-output commonjs:lib\js\$in_d:.bs.js -bs-v $g_finger $i
   dyndep = 1
   restat = 1
+o _generated-test\TestDictTest.cmj _generated-test\TestDictTest.cmi ..\js\_generated-test\TestDictTest.bs.js : mij_dev _generated-test\TestDictTest.ast
+o _generated-test\TestListTest.ast : astj ..\..\_generated-test\TestListTest.res
+o _generated-test\TestListTest.d : deps_dev _generated-test\TestListTest.ast
 o _generated-test\TestListTest.cmj _generated-test\TestListTest.cmi ..\js\_generated-test\TestListTest.bs.js : mij_dev _generated-test\TestListTest.ast
 o _generated-test\TestArrayTest.ast : astj ..\..\_generated-test\TestArrayTest.res
 o _generated-test\TestArrayTest.d : deps_dev _generated-test\TestArrayTest.ast
@@ -41,18 +44,23 @@ o _generated-test\TestVariantLiteralTest.cmj _generated-test\TestVariantLiteralT
 o _generated-test\TestVariantContainerTest.ast : astj ..\..\_generated-test\TestVariantContainerTest.res
 o _generated-test\TestVariantContainerTest.d : deps_dev _generated-test\TestVariantContainerTest.ast
 o _generated-test\TestVariantContainerTest.cmj _generated-test\TestVariantContainerTest.cmi ..\js\_generated-test\TestVariantContainerTest.bs.js : mij_dev _generated-test\TestVariantContainerTest.ast
-o _generated\TestList.ast : astj ..\..\_generated\TestList.res
-o _generated\TestList.d : deps_dev _generated\TestList.ast _generated\TestList.iast
-o _generated\TestList.iast : astj ..\..\_generated\TestList.resi
+o _generated\TestDict.ast : astj ..\..\_generated\TestDict.res
+o _generated\TestDict.d : deps_dev _generated\TestDict.ast _generated\TestDict.iast
+o _generated\TestDict.iast : astj ..\..\_generated\TestDict.resi
 rule mi_dev
   command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe" -I test-src -I test-schema -I _generated -I _generated-test -I src -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-result-exn\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-struct\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-mocha\lib\ocaml" -open RescriptStruct  -bs-v $g_finger $i
   dyndep = 1
   restat = 1
-o _generated\TestList.cmi : mi_dev _generated\TestList.iast
+o _generated\TestDict.cmi : mi_dev _generated\TestDict.iast
 rule mj_dev
   command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe" -bs-read-cmi -I test-src -I test-schema -I _generated -I _generated-test -I src -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-result-exn\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-struct\lib\ocaml" -I "D:\rescript-projects\rescript-schema-driven\node_modules\rescript-mocha\lib\ocaml" -open RescriptStruct  -bs-package-name rescript-schema-driven -bs-package-output commonjs:lib\js\$in_d:.bs.js -bs-v $g_finger $i
   dyndep = 1
   restat = 1
+o _generated\TestDict.cmj ..\js\_generated\TestDict.bs.js : mj_dev _generated\TestDict.ast _generated\TestDict.cmi
+o _generated\TestList.ast : astj ..\..\_generated\TestList.res
+o _generated\TestList.d : deps_dev _generated\TestList.ast _generated\TestList.iast
+o _generated\TestList.iast : astj ..\..\_generated\TestList.resi
+o _generated\TestList.cmi : mi_dev _generated\TestList.iast
 o _generated\TestList.cmj ..\js\_generated\TestList.bs.js : mj_dev _generated\TestList.ast _generated\TestList.cmi
 o _generated\TestArray.ast : astj ..\..\_generated\TestArray.res
 o _generated\TestArray.d : deps_dev _generated\TestArray.ast _generated\TestArray.iast
@@ -122,12 +130,15 @@ o test-src\SchemaDrivenModuleTest.cmj test-src\SchemaDrivenModuleTest.cmi ..\js\
 o test-src\SchemaDrivenStringTest.ast : astj ..\..\test-src\SchemaDrivenStringTest.res
 o test-src\SchemaDrivenStringTest.d : deps_dev test-src\SchemaDrivenStringTest.ast
 o test-src\SchemaDrivenStringTest.cmj test-src\SchemaDrivenStringTest.cmi ..\js\test-src\SchemaDrivenStringTest.bs.js : mij_dev test-src\SchemaDrivenStringTest.ast
+o test-src\SchemaDrivenUnknownTest.ast : astj ..\..\test-src\SchemaDrivenUnknownTest.res
+o test-src\SchemaDrivenUnknownTest.d : deps_dev test-src\SchemaDrivenUnknownTest.ast
+o test-src\SchemaDrivenUnknownTest.cmj test-src\SchemaDrivenUnknownTest.cmi ..\js\test-src\SchemaDrivenUnknownTest.bs.js : mij_dev test-src\SchemaDrivenUnknownTest.ast
 o test-src\SchemaDrivenNamesCorrectorTest.ast : astj ..\..\test-src\SchemaDrivenNamesCorrectorTest.res
 o test-src\SchemaDrivenNamesCorrectorTest.d : deps_dev test-src\SchemaDrivenNamesCorrectorTest.ast
 o test-src\SchemaDrivenNamesCorrectorTest.cmj test-src\SchemaDrivenNamesCorrectorTest.cmi ..\js\test-src\SchemaDrivenNamesCorrectorTest.bs.js : mij_dev test-src\SchemaDrivenNamesCorrectorTest.ast
 o src\SchemaDriven.ast : astj ..\..\src\SchemaDriven.res
 rule deps
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash 164176f21c8e25b87f2349cd5ea59da3 $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash e27d8f35827ca509b6e0f138a734d952 $in
   restat = 1
 o src\SchemaDriven.d : deps src\SchemaDriven.ast
 rule mij
@@ -153,6 +164,9 @@ o src\SchemaDrivenBool.d : deps src\SchemaDrivenBool.ast src\SchemaDrivenBool.ia
 o src\SchemaDrivenBool.iast : astj ..\..\src\SchemaDrivenBool.resi
 o src\SchemaDrivenBool.cmi : mi src\SchemaDrivenBool.iast
 o src\SchemaDrivenBool.cmj ..\js\src\SchemaDrivenBool.bs.js : mj src\SchemaDrivenBool.ast src\SchemaDrivenBool.cmi
+o src\SchemaDrivenDict.ast : astj ..\..\src\SchemaDrivenDict.res
+o src\SchemaDrivenDict.d : deps src\SchemaDrivenDict.ast
+o src\SchemaDrivenDict.cmj src\SchemaDrivenDict.cmi ..\js\src\SchemaDrivenDict.bs.js : mij src\SchemaDrivenDict.ast
 o src\SchemaDrivenList.ast : astj ..\..\src\SchemaDrivenList.res
 o src\SchemaDrivenList.d : deps src\SchemaDrivenList.ast
 o src\SchemaDrivenList.cmj src\SchemaDrivenList.cmi ..\js\src\SchemaDrivenList.bs.js : mij src\SchemaDrivenList.ast
@@ -190,6 +204,11 @@ o src\SchemaDrivenString.cmj ..\js\src\SchemaDrivenString.bs.js : mj src\SchemaD
 o src\SchemaDrivenTupleN.ast : astj ..\..\src\SchemaDrivenTupleN.res
 o src\SchemaDrivenTupleN.d : deps src\SchemaDrivenTupleN.ast
 o src\SchemaDrivenTupleN.cmj src\SchemaDrivenTupleN.cmi ..\js\src\SchemaDrivenTupleN.bs.js : mij src\SchemaDrivenTupleN.ast
+o src\SchemaDrivenUnknown.ast : astj ..\..\src\SchemaDrivenUnknown.res
+o src\SchemaDrivenUnknown.d : deps src\SchemaDrivenUnknown.ast src\SchemaDrivenUnknown.iast
+o src\SchemaDrivenUnknown.iast : astj ..\..\src\SchemaDrivenUnknown.resi
+o src\SchemaDrivenUnknown.cmi : mi src\SchemaDrivenUnknown.iast
+o src\SchemaDrivenUnknown.cmj ..\js\src\SchemaDrivenUnknown.bs.js : mj src\SchemaDrivenUnknown.ast src\SchemaDrivenUnknown.cmi
 o src\SchemaDrivenOptionNull.ast : astj ..\..\src\SchemaDrivenOptionNull.res
 o src\SchemaDrivenOptionNull.d : deps src\SchemaDrivenOptionNull.ast
 o src\SchemaDrivenOptionNull.cmj src\SchemaDrivenOptionNull.cmi ..\js\src\SchemaDrivenOptionNull.bs.js : mij src\SchemaDrivenOptionNull.ast

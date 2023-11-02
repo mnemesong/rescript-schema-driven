@@ -10,6 +10,8 @@ let string = def("SchemaDrivenString")
 
 let bool = def("SchemaDrivenBool")
 
+let unknown = def("SchemaDrivenUnknown")
+
 let optionNull = (
   moduleName: string,
   t: schemaDrivenModule,
@@ -108,6 +110,16 @@ let list = (
   engine: SchemaDrivenEngine.schemaDrivenEngine,
 ) =>
   SchemaDrivenList.makeResultCode(moduleName, t) |> SchemaDrivenEngine.printModule(
+    engine,
+    moduleName,
+  )
+
+let dict = (
+  moduleName: string,
+  t: schemaDrivenModule,
+  engine: SchemaDrivenEngine.schemaDrivenEngine,
+) =>
+  SchemaDrivenDict.makeResultCode(moduleName, t) |> SchemaDrivenEngine.printModule(
     engine,
     moduleName,
   )

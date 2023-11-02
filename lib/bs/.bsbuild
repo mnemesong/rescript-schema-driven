@@ -1,7 +1,8 @@
-23
+25
 SchemaDriven
 SchemaDrivenInt
 SchemaDrivenBool
+SchemaDrivenDict
 SchemaDrivenList
 SchemaDrivenArray
 SchemaDrivenField
@@ -13,6 +14,7 @@ SchemaDrivenPlugin
 SchemaDrivenRecord
 SchemaDrivenString
 SchemaDrivenTupleN
+SchemaDrivenUnknown
 SchemaDrivenOptionNull
 SchemaDrivenResultCode
 SchemaDrivenTupleObject
@@ -23,13 +25,15 @@ SchemaDrivenVariantContainer
 SchemaDrivenRescriptStructPlugin
 SchemaDrivenUnexpectedFilesStrategy
 src	
-1
-28
+1
+31
+TestDict
 TestList
 TestArray
 TestPerson
 TestTupleN
 TestProfile
+TestDictTest
 TestListTest
 TestArrayTest
 TestOptionInt
@@ -51,7 +55,8 @@ TestVariantObjectTest
 SchemaDrivenModuleTest
 SchemaDrivenStringTest
 TestVariantLiteralTest
+SchemaDrivenUnknownTest
 TestVariantContainerTest
 SchemaDrivenNamesCorrectorTest
 _generated	_generated-test	test-schema	test-src	
-1
+1

@@ -54,3 +54,5 @@ let testTupleN = tupleN("TestTupleN", [string, testPersonRec, testOptionInt], en
 let testArray = array("TestArray", string, eng)->Result.getExn
 
 let testList = list("TestList", float, eng)->Result.getExn
+
+let testDict = dict("TestDict", testOptionStr, eng)->Result.getExn
