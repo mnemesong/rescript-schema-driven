@@ -26,21 +26,23 @@ let optionNull = (
   )
 
 let record = (
+  ~strict=false,
   moduleName: string,
   props: array<field<schemaDrivenModule>>,
   engine: SchemaDrivenEngine.schemaDrivenEngine,
 ) =>
-  SchemaDrivenRecord.makeResultCode(moduleName, props) |> SchemaDrivenEngine.printModule(
+  SchemaDrivenRecord.makeResultCode(moduleName, props, strict) |> SchemaDrivenEngine.printModule(
     engine,
     moduleName,
   )
 
 let object = (
+  ~strict=false,
   moduleName: string,
   props: array<field<schemaDrivenModule>>,
   engine: SchemaDrivenEngine.schemaDrivenEngine,
 ) =>
-  SchemaDrivenObject.makeResultCode(moduleName, props) |> SchemaDrivenEngine.printModule(
+  SchemaDrivenObject.makeResultCode(moduleName, props, strict) |> SchemaDrivenEngine.printModule(
     engine,
     moduleName,
   )
@@ -56,17 +58,20 @@ let tupleN = (
   )
 
 let tupleObject = (
+  ~strict=false,
   moduleName: string,
   types: array<schemaDrivenModule>,
   engine: SchemaDrivenEngine.schemaDrivenEngine,
 ) =>
-  SchemaDrivenTupleObject.makeResultCode(moduleName, types) |> SchemaDrivenEngine.printModule(
-    engine,
+  SchemaDrivenTupleObject.makeResultCode(
     moduleName,
-  )
+    types,
+    strict,
+  ) |> SchemaDrivenEngine.printModule(engine, moduleName)
 
 let variantObject = (
   ~tagName="TAG",
+  ~strict=false,
   moduleName: string,
   variants: array<variant<array<field<schemaDrivenModule>>>>,
   engine: SchemaDrivenEngine.schemaDrivenEngine,
@@ -75,10 +80,12 @@ let variantObject = (
     moduleName,
     variants,
     tagName,
+    strict,
   ) |> SchemaDrivenEngine.printModule(engine, moduleName)
 
 let variantContainer = (
   ~tagName="TAG",
+  ~strict=false,
   moduleName: string,
   variants: array<variant<array<schemaDrivenModule>>>,
   engine: SchemaDrivenEngine.schemaDrivenEngine,
@@ -87,6 +94,7 @@ let variantContainer = (
     moduleName,
     variants,
     tagName,
+    strict,
   ) |> SchemaDrivenEngine.printModule(engine, moduleName)
 
 let variantLiteral = (

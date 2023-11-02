@@ -39,6 +39,25 @@ describe("TestPersonTest", () => {
       },
     )
     it(
+      "test valid 3",
+      () => {
+        let given = %raw(`{
+          id: 5,
+          ages: null,
+          name: "",
+          extra1: true,
+          extra2: {val: 12}
+        }`)
+        let result = parse(given)
+        let nominal = Ok({
+          id: 5,
+          ages: None,
+          name: "",
+        })
+        Assert.deep_equal(result, nominal)
+      },
+    )
+    it(
       "test invalid",
       () => {
         let given = %raw(`{

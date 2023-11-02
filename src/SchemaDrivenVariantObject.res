@@ -7,7 +7,9 @@ open Belt
 let printStruct = (
   variants: array<variant<array<field<schemaDrivenModule>>>>,
   tagName: string,
+  strict: bool,
 ): string => {
+  let strictAnnot = strict ? "->S.Object.strict" : "->S.Object.strip"
   let variantRows = variants->Array.map(v => {
     let Variant(varName, props) = v
     let varName' = modifyVariantName(varName)
@@ -18,7 +20,7 @@ let printStruct = (
     `  S.object(o => {
     ignore(o->S.field("${tagName}", S.literal(String("${varName'}"))))
     ${varName'}({\n${propRows->Js.Array2.joinWith(",\n")}\n    })
-  })`
+  })${strictAnnot}`
   })
   `S.union([
 ${variantRows->Js.Array2.joinWith(",\n")}
@@ -42,4 +44,5 @@ let makeResultCode = (
   moduleName: string,
   variants: array<variant<array<field<schemaDrivenModule>>>>,
   tagName: string,
-): resultCodeDeclar => make(moduleName, printType(variants), printStruct(variants, tagName))
+  strict: bool,
+): resultCodeDeclar => make(moduleName, printType(variants), printStruct(variants, tagName, strict))

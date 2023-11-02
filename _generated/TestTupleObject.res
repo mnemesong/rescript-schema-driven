@@ -10,7 +10,7 @@ let struct: S.t<t> = S.object(o => (
   o->S.field("t_0", SchemaDrivenInt.struct),
   o->S.field("t_1", TestOptionStr.struct),
   o->S.field("t_2", SchemaDrivenBool.struct)
-))
+))->S.Object.strip
 
 let parse = (x) => x->S.parseWith(struct)
 ->SchemaDrivenRescriptStructPlugin.structErrToExn

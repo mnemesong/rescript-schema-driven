@@ -62,4 +62,5 @@ let crazyTaggedVariant = variantContainer(
   [Variant("Fruit", [testVariantLiteral]), Variant("FruitSet", [testArray])],
   eng,
   ~tagName="crazyTaggedVariant",
+  ~strict=true,
 )

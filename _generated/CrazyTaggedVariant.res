@@ -10,13 +10,13 @@ let struct: S.t<t> = S.union([
     Fruit(
       o->S.field("t_0", TestVariantLiteral.struct)
     )
-  }),
+  })->S.Object.strict,
   S.object(o => {
     ignore(o->S.field("crazyTaggedVariant", S.literal(String("FruitSet"))))
     FruitSet(
       o->S.field("t_0", TestArray.struct)
     )
-  })
+  })->S.Object.strict
 ])
 
 let parse = (x) => x->S.parseWith(struct)

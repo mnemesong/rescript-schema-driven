@@ -11,20 +11,20 @@ let struct: S.t<t> = S.union([
     Var1(
       o->S.field("t_0", SchemaDrivenFloat.struct)
     )
-  }),
+  })->S.Object.strip,
   S.object(o => {
     ignore(o->S.field("TAG", S.literal(String("Var2"))))
     Var2(
       o->S.field("t_0", TestOptionStr.struct),
       o->S.field("t_1", SchemaDrivenFloat.struct)
     )
-  }),
+  })->S.Object.strip,
   S.object(o => {
     ignore(o->S.field("TAG", S.literal(String("Var3"))))
     Var3(
       o->S.field("t_0", SchemaDrivenString.struct)
     )
-  })
+  })->S.Object.strip
 ])
 
 let parse = (x) => x->S.parseWith(struct)

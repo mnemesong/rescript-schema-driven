@@ -15,14 +15,14 @@ let struct: S.t<t> = S.union([
     Circle({
       radius: o->S.field("radius", SchemaDrivenFloat.struct)
     })
-  }),
+  })->S.Object.strip,
   S.object(o => {
     ignore(o->S.field("TAG", S.literal(String("Square"))))
     Square({
       width: o->S.field("width", SchemaDrivenFloat.struct),
       height: o->S.field("height", SchemaDrivenFloat.struct)
     })
-  })
+  })->S.Object.strip
 ])
 
 let parse = (x) => x->S.parseWith(struct)

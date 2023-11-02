@@ -17,6 +17,18 @@ describe("CrazyTaggedVariantTest", () => {
       },
     )
     it(
+      "test invalid strip",
+      () => {
+        let given = %raw(`{
+          crazyTaggedVariant: "FruitSet",
+          t_0: ["Lichi", "Pinapple"],
+          t_1: "extraval"
+        }`)
+        let result = parse(given)
+        Assert.ok(result->Belt.Result.isError)
+      },
+    )
+    it(
       "test invalid",
       () => {
         let given = %raw(`{

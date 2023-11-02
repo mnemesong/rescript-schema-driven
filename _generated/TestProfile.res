@@ -8,7 +8,7 @@ type t = testProfile
 let struct: S.t<t> = S.object(o => {
   "person": o->S.field("person", TestPerson.struct),
   "descr": o->S.field("descr", TestOptionStr.struct)
-})
+})->S.Object.strip
 
 let parse = (x) => x->S.parseWith(struct)
 ->SchemaDrivenRescriptStructPlugin.structErrToExn
