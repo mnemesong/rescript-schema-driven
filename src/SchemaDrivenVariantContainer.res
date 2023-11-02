@@ -4,7 +4,7 @@ open SchemaDrivenField
 open SchemaDrivenNamesCorrector
 open Belt
 
-let printStruct = (variants: array<field<array<schemaDrivenModule>>>): string => {
+let printStruct = (variants: array<field<array<schemaDrivenModule>>>, tagName: string): string => {
   let variantRows = variants->Array.map(v => {
     let Field(varName, types) = v
     let varName' = modifyVariantName(varName)
@@ -15,7 +15,7 @@ let printStruct = (variants: array<field<array<schemaDrivenModule>>>): string =>
     let varParams =
       typeRows->Array.length > 0 ? `(\n${typeRows->Js.Array2.joinWith(",\n")}\n    )` : ""
     `  S.object(o => {
-    ignore(o->S.field("TAG", S.literal(String("${varName'}"))))
+    ignore(o->S.field("${tagName}", S.literal(String("${varName'}"))))
     ${varName'}${varParams}
   })`
   })
@@ -39,4 +39,5 @@ let printType = (variants: array<field<array<schemaDrivenModule>>>): string => {
 let makeResultCode = (
   moduleName: string,
   variants: array<field<array<schemaDrivenModule>>>,
-): resultCodeDeclar => make(moduleName, printType(variants), printStruct(variants))
+  tagName: string,
+): resultCodeDeclar => make(moduleName, printType(variants), printStruct(variants, tagName))

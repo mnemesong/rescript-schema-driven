@@ -65,16 +65,19 @@ let tupleObject = (
   )
 
 let variantObject = (
+  ~tagName="TAG",
   moduleName: string,
   variants: array<field<array<field<schemaDrivenModule>>>>,
   engine: SchemaDrivenEngine.schemaDrivenEngine,
 ) =>
-  SchemaDrivenVariantObject.makeResultCode(moduleName, variants) |> SchemaDrivenEngine.printModule(
-    engine,
+  SchemaDrivenVariantObject.makeResultCode(
     moduleName,
-  )
+    variants,
+    tagName,
+  ) |> SchemaDrivenEngine.printModule(engine, moduleName)
 
 let variantContainer = (
+  ~tagName="TAG",
   moduleName: string,
   variants: array<field<array<schemaDrivenModule>>>,
   engine: SchemaDrivenEngine.schemaDrivenEngine,
@@ -82,6 +85,7 @@ let variantContainer = (
   SchemaDrivenVariantContainer.makeResultCode(
     moduleName,
     variants,
+    tagName,
   ) |> SchemaDrivenEngine.printModule(engine, moduleName)
 
 let variantLiteral = (

@@ -56,3 +56,10 @@ let testArray = array("TestArray", string, eng)->Result.getExn
 let testList = list("TestList", float, eng)->Result.getExn
 
 let testDict = dict("TestDict", testOptionStr, eng)->Result.getExn
+
+let crazyTaggedVariant = variantContainer(
+  "CrazyTaggedVariant",
+  [Field("Fruit", [testVariantLiteral]), Field("FruitSet", [testArray])],
+  eng,
+  ~tagName="crazyTaggedVariant",
+)

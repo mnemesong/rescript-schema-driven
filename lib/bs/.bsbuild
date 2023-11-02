@@ -26,7 +26,7 @@ SchemaDrivenRescriptStructPlugin
 SchemaDrivenUnexpectedFilesStrategy
 src	
 1
-31
+33
 TestDict
 TestList
 TestArray
@@ -45,6 +45,7 @@ TestTupleObject
 SchemaDrivenTest
 TestOptionIntTest
 TestVariantObject
+CrazyTaggedVariant
 TestVariantLiteral
 SchemaDrivenIntTest
 TestTupleObjectTest
@@ -52,6 +53,7 @@ SchemaDrivenBoolTest
 TestVariantContainer
 SchemaDrivenFloatTest
 TestVariantObjectTest
+CrazyTaggedVariantTest
 SchemaDrivenModuleTest
 SchemaDrivenStringTest
 TestVariantLiteralTest
@@ -59,4 +61,4 @@ SchemaDrivenUnknownTest
 TestVariantContainerTest
 SchemaDrivenNamesCorrectorTest
 _generated	_generated-test	test-schema	test-src	
-1
+1

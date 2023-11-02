@@ -6,7 +6,7 @@ rule astj
   command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe"  -bs-v 10.1.4 -open RescriptStruct -absname -bs-ast -o $out $i
 o _generated-test\TestDictTest.ast : astj ..\..\_generated-test\TestDictTest.res
 rule deps_dev
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash e27d8f35827ca509b6e0f138a734d952 $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash 5e9f18cb4c2ea3613a6b2e3812dc224b $in
   restat = 1
 o _generated-test\TestDictTest.d : deps_dev _generated-test\TestDictTest.ast
 rule mij_dev
@@ -38,6 +38,9 @@ o _generated-test\TestTupleObjectTest.cmj _generated-test\TestTupleObjectTest.cm
 o _generated-test\TestVariantObjectTest.ast : astj ..\..\_generated-test\TestVariantObjectTest.res
 o _generated-test\TestVariantObjectTest.d : deps_dev _generated-test\TestVariantObjectTest.ast
 o _generated-test\TestVariantObjectTest.cmj _generated-test\TestVariantObjectTest.cmi ..\js\_generated-test\TestVariantObjectTest.bs.js : mij_dev _generated-test\TestVariantObjectTest.ast
+o _generated-test\CrazyTaggedVariantTest.ast : astj ..\..\_generated-test\CrazyTaggedVariantTest.res
+o _generated-test\CrazyTaggedVariantTest.d : deps_dev _generated-test\CrazyTaggedVariantTest.ast
+o _generated-test\CrazyTaggedVariantTest.cmj _generated-test\CrazyTaggedVariantTest.cmi ..\js\_generated-test\CrazyTaggedVariantTest.bs.js : mij_dev _generated-test\CrazyTaggedVariantTest.ast
 o _generated-test\TestVariantLiteralTest.ast : astj ..\..\_generated-test\TestVariantLiteralTest.res
 o _generated-test\TestVariantLiteralTest.d : deps_dev _generated-test\TestVariantLiteralTest.ast
 o _generated-test\TestVariantLiteralTest.cmj _generated-test\TestVariantLiteralTest.cmi ..\js\_generated-test\TestVariantLiteralTest.bs.js : mij_dev _generated-test\TestVariantLiteralTest.ast
@@ -102,6 +105,11 @@ o _generated\TestVariantObject.d : deps_dev _generated\TestVariantObject.ast _ge
 o _generated\TestVariantObject.iast : astj ..\..\_generated\TestVariantObject.resi
 o _generated\TestVariantObject.cmi : mi_dev _generated\TestVariantObject.iast
 o _generated\TestVariantObject.cmj ..\js\_generated\TestVariantObject.bs.js : mj_dev _generated\TestVariantObject.ast _generated\TestVariantObject.cmi
+o _generated\CrazyTaggedVariant.ast : astj ..\..\_generated\CrazyTaggedVariant.res
+o _generated\CrazyTaggedVariant.d : deps_dev _generated\CrazyTaggedVariant.ast _generated\CrazyTaggedVariant.iast
+o _generated\CrazyTaggedVariant.iast : astj ..\..\_generated\CrazyTaggedVariant.resi
+o _generated\CrazyTaggedVariant.cmi : mi_dev _generated\CrazyTaggedVariant.iast
+o _generated\CrazyTaggedVariant.cmj ..\js\_generated\CrazyTaggedVariant.bs.js : mj_dev _generated\CrazyTaggedVariant.ast _generated\CrazyTaggedVariant.cmi
 o _generated\TestVariantLiteral.ast : astj ..\..\_generated\TestVariantLiteral.res
 o _generated\TestVariantLiteral.d : deps_dev _generated\TestVariantLiteral.ast _generated\TestVariantLiteral.iast
 o _generated\TestVariantLiteral.iast : astj ..\..\_generated\TestVariantLiteral.resi
@@ -138,7 +146,7 @@ o test-src\SchemaDrivenNamesCorrectorTest.d : deps_dev test-src\SchemaDrivenName
 o test-src\SchemaDrivenNamesCorrectorTest.cmj test-src\SchemaDrivenNamesCorrectorTest.cmi ..\js\test-src\SchemaDrivenNamesCorrectorTest.bs.js : mij_dev test-src\SchemaDrivenNamesCorrectorTest.ast
 o src\SchemaDriven.ast : astj ..\..\src\SchemaDriven.res
 rule deps
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash e27d8f35827ca509b6e0f138a734d952 $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash 5e9f18cb4c2ea3613a6b2e3812dc224b $in
   restat = 1
 o src\SchemaDriven.d : deps src\SchemaDriven.ast
 rule mij
