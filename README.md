@@ -25,7 +25,7 @@ Then add `rescript-struct` and `rescript-schema-driven` to `bs-dependencies` in 
 - Make your serializible types-schemas file, thats will one source-of-true.
 - Have always correct and capable types-declarations and rescript-struct schemas, 
 and safety refactoring, they are gives to you.
-- Extends generated modules with plugins, adds to modules new functionality you needs.
+- Extends generated modules with plugins, adds to all modules new functionality you need.
 
 
 
