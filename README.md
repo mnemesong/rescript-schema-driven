@@ -66,7 +66,7 @@ let testPersonRec =
 
 ## API
 
-#### SchemaDrien.resi
+#### SchemaDriven.resi
 ```rescript
 open SchemaDrivenModule
 open SchemaDrivenPlugin
