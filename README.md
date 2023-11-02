@@ -36,6 +36,14 @@ let eng =
     _genDir, //target dir for generation files
     [SchemaDrivenRescriptStructPlugin.plugin], //plugins. 
     //Plugins add extra api for modules and may be used for exteding functionality
+    //This plugin will add extra api:
+    //let parse: Js.Json.t => result<t, exn>
+    //let parseAny: 'a => result<t, exn>
+    //let parseJson: string => result<t, exn>
+    //let parseAsync: Js.Json.t => promise<result<t, exn>>
+    //let serialize: t => result<Js.Json.t, exn>
+    //let serializeToUnknown: t => result<unknown, exn>
+    //let serializeToJson: t => result<string, exn>
     RemoveAllFilesFromDir, //pregeneration dir handling strategy
   )->Belt.Result.getExn
 
