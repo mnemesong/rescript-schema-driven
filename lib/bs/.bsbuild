@@ -27,7 +27,8 @@ SchemaDrivenModifyModuleNamePlugin
 SchemaDrivenUnexpectedFilesStrategy
 src	
 1
-34
+35
+Publish
 TestDict
 TestList
 TestArray
@@ -63,4 +64,4 @@ SchemaDrivenUnknownTest
 TestVariantContainerTest
 SchemaDrivenNamesCorrectorTest
 _generated	_generated-test	test-schema	test-src	
-1
+1

@@ -5,6 +5,8 @@ type variant<'a> = SchemaDrivenHelper.variant<'a>
 
 let defEngine = SchemaDrivenEngine.def
 
+let publishModules = SchemaDrivenEngine.publish
+
 let int = def("SchemaDrivenInt")
 
 let float = def("SchemaDrivenFloat")

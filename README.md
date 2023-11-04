@@ -238,6 +238,54 @@ Look more examples in this package:
 - tests for then in ./_generated-test directory
 
 
+## Publishing
+You can get the `schemeDrivenModule` after executing any of the functions that generate module code. 
+However, there may be a need to access generated modules from another package to generate 
+new modules based on them.In this case, there is a high probability that when you try 
+to access the name of the generated module, you will restart generation and get bugs.
+
+
+To avoid this, I recommend following a few simple rules:
+- Place your module in which generation is called in the dev folder, publishing only the generation result.
+- To publish links to generated modules of type schemeDrivenModule, use the publishModules function.
+
+
+The publishModules function generates another file in the target folder in which the specified 
+schemeDrivenModules will be available as data, without the risk of triggering side effects when accessed.
+
+```rescript
+//Example
+let eng =
+  defEngine(...)->Belt.Result.getExn
+
+let testOptionInt = optionNull("TestOptionInt", int, eng)->Result.getExn
+let testOptionStr = optionNull("TestOptionStr", string, eng)->Result.getExn
+
+...
+
+//Will create Publish module with type aliaces to testOptionInt and testOptionStr,
+let publish =
+  publishModules(
+    "Publish",
+    [
+      testOptionInt,
+      testOptionStr,
+      ...
+    ],
+    eng,
+  )->Result.getExn
+
+//--------------------------------------
+//Publish.res
+open SchemaDrivenModule
+
+let testOptionInt: schemaDrivenModule = def("TestOptionInt")
+
+let testOptionStr: schemaDrivenModule = def("TestOptionStr")
+...
+```
+
+
 ## SchemaDrivenRescriptStructPlugin
 plugin thats extends base module api. adds module type 
 ```rescript

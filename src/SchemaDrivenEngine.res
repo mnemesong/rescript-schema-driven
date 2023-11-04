@@ -1,6 +1,7 @@
 open SchemaDrivenPlugin
 open SchemaDrivenUnexpectedFilesStrategy
 open SchemaDrivenResultCode
+open SchemaDrivenModule
 open Belt
 
 type schemaDrivenEngine
@@ -45,7 +46,7 @@ function (dir) {
 `)
 
 let printModule = (eng: schemaDrivenEngine, moduleName: string, code: resultCodeDeclar): result<
-  SchemaDrivenModule.schemaDrivenModule,
+  schemaDrivenModule,
   exn,
 > => {
   let resolvePath: array<string> => string = %raw(`
@@ -66,6 +67,54 @@ let printModule = (eng: schemaDrivenEngine, moduleName: string, code: resultCode
   ->Result.flatMap(_ =>
     moduleTypePath->Result.flatMap(p =>
       ResultExn.tryExec(() => writeFileSync(p, moduleType, isRemoveOnMatch(eng)))
+    )
+  )
+  ->ResultExn.map(_ => moduleName'->SchemaDrivenModule.def)
+}
+
+let printPublishModuleBody = (modules: array<schemaDrivenModule>): string =>
+  [`open SchemaDrivenModule`]
+  ->Array.concat(
+    Array.map(modules, m =>
+      `let ` ++
+      SchemaDrivenNamesCorrector.modifyVariableName(m->moduleName) ++
+      `: schemaDrivenModule = def("${m->moduleName}")`
+    ),
+  )
+  ->Js.Array2.joinWith("\n\n")
+
+let printPublishModuleType = (modules: array<schemaDrivenModule>): string =>
+  [`open SchemaDrivenModule`]
+  ->Array.concat(
+    Array.map(modules, m =>
+      `let ` ++
+      SchemaDrivenNamesCorrector.modifyVariableName(m->moduleName) ++ `: schemaDrivenModule`
+    ),
+  )
+  ->Js.Array2.joinWith("\n\n")
+
+let publish = (
+  moduleName: string,
+  modules: array<schemaDrivenModule>,
+  eng: schemaDrivenEngine,
+): result<schemaDrivenModule, exn> => {
+  let resolvePath: array<string> => string = %raw(`
+  function(parts) {
+    return require("path").resolve(...parts);
+  }
+  `)
+  let moduleName' = SchemaDrivenNamesCorrector.modifyModuleName(moduleName)
+  let moduleFilePath = ResultExn.tryExec(() => resolvePath([eng->path, moduleName' ++ ".res"]))
+  let moduleTypePath = ResultExn.tryExec(() => resolvePath([eng->path, moduleName' ++ ".resi"]))
+  moduleFilePath
+  ->ResultExn.flatMap(p =>
+    ResultExn.tryExec(() => writeFileSync(p, printPublishModuleBody(modules), isRemoveOnMatch(eng)))
+  )
+  ->Result.flatMap(_ =>
+    moduleTypePath->Result.flatMap(p =>
+      ResultExn.tryExec(
+        () => writeFileSync(p, printPublishModuleType(modules), isRemoveOnMatch(eng)),
+      )
     )
   )
   ->ResultExn.map(_ => moduleName'->SchemaDrivenModule.def)

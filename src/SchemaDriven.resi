@@ -11,6 +11,12 @@ let defEngine: (
   unexpectedFilesStrategy,
 ) => result<SchemaDrivenEngine.schemaDrivenEngine, exn>
 
+let publishModules: (
+  string,
+  array<schemaDrivenModule>,
+  SchemaDrivenEngine.schemaDrivenEngine,
+) => result<schemaDrivenModule, exn>
+
 let int: schemaDrivenModule
 
 let float: schemaDrivenModule

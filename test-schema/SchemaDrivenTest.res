@@ -57,13 +57,34 @@ let testList = list("TestList", float, eng)->Result.getExn
 
 let testDict = dict("TestDict", testOptionStr, eng)->Result.getExn
 
-let crazyTaggedVariant = variantContainer(
-  "CrazyTaggedVariant",
-  [Variant("Fruit", [testVariantLiteral]), Variant("FruitSet", [testArray])],
-  eng,
-  ~tagName="crazyTaggedVariant",
-  ~strict=true,
-)
+let crazyTaggedVariant =
+  variantContainer(
+    "CrazyTaggedVariant",
+    [Variant("Fruit", [testVariantLiteral]), Variant("FruitSet", [testArray])],
+    eng,
+    ~tagName="crazyTaggedVariant",
+    ~strict=true,
+  )->Result.getExn
+
+let publish =
+  publishModules(
+    "Publish",
+    [
+      testOptionInt,
+      testOptionStr,
+      testPersonRec,
+      testProfileObj,
+      testVariantObject,
+      testVariantContainer,
+      testVariantLiteral,
+      testTupleN,
+      testArray,
+      testList,
+      testDict,
+      crazyTaggedVariant,
+    ],
+    eng,
+  )->Result.getExn
 
 let eng2 =
   defEngine(
@@ -72,4 +93,4 @@ let eng2 =
     RemoveOnlyInMatch,
   )->Belt.Result.getExn
 
-let optionBool = optionNull("OptionBool", bool, eng2)
+let optionBool = optionNull("OptionBool", bool, eng2)->Result.getExn

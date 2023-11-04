@@ -1,6 +1,7 @@
 open SchemaDrivenPlugin
 open SchemaDrivenUnexpectedFilesStrategy
 open SchemaDrivenResultCode
+open SchemaDrivenModule
 
 type schemaDrivenEngine
 
@@ -21,3 +22,9 @@ let printModule: (
   string,
   resultCodeDeclar,
 ) => result<SchemaDrivenModule.schemaDrivenModule, exn>
+
+let publish: (
+  string,
+  array<schemaDrivenModule>,
+  schemaDrivenEngine,
+) => result<schemaDrivenModule, exn>
