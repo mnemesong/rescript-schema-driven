@@ -19,3 +19,5 @@ let printModuleBody: resultCodeDeclar => string
 let printModuleType: resultCodeDeclar => string
 
 let editModuleName: (resultCodeDeclar, string => string) => resultCodeDeclar
+
+let editModuleTypes: (resultCodeDeclar, string => string) => resultCodeDeclar

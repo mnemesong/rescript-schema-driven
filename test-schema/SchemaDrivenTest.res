@@ -64,3 +64,12 @@ let crazyTaggedVariant = variantContainer(
   ~tagName="crazyTaggedVariant",
   ~strict=true,
 )
+
+let eng2 =
+  defEngine(
+    _genDir,
+    [SchemaDrivenModifyModuleNamePlugin.prefixPlugin("Pre")],
+    RemoveOnlyInMatch,
+  )->Belt.Result.getExn
+
+let optionBool = optionNull("OptionBool", bool, eng2)

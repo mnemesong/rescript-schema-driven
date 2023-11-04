@@ -6,7 +6,7 @@ rule astj
   command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe"  -bs-v 10.1.4 -open RescriptStruct -absname -bs-ast -o $out $i
 o _generated-test\TestDictTest.ast : astj ..\..\_generated-test\TestDictTest.res
 rule deps_dev
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash f31e5610c5b6b128205188cc37752399 $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash 522be3da1fbbee40b151318f02afe248 $in
   restat = 1
 o _generated-test\TestDictTest.d : deps_dev _generated-test\TestDictTest.ast
 rule mij_dev
@@ -70,6 +70,11 @@ o _generated\TestArray.d : deps_dev _generated\TestArray.ast _generated\TestArra
 o _generated\TestArray.iast : astj ..\..\_generated\TestArray.resi
 o _generated\TestArray.cmi : mi_dev _generated\TestArray.iast
 o _generated\TestArray.cmj ..\js\_generated\TestArray.bs.js : mj_dev _generated\TestArray.ast _generated\TestArray.cmi
+o _generated\OptionBool.ast : astj ..\..\_generated\OptionBool.res
+o _generated\OptionBool.d : deps_dev _generated\OptionBool.ast _generated\OptionBool.iast
+o _generated\OptionBool.iast : astj ..\..\_generated\OptionBool.resi
+o _generated\OptionBool.cmi : mi_dev _generated\OptionBool.iast
+o _generated\OptionBool.cmj ..\js\_generated\OptionBool.bs.js : mj_dev _generated\OptionBool.ast _generated\OptionBool.cmi
 o _generated\TestPerson.ast : astj ..\..\_generated\TestPerson.res
 o _generated\TestPerson.d : deps_dev _generated\TestPerson.ast _generated\TestPerson.iast
 o _generated\TestPerson.iast : astj ..\..\_generated\TestPerson.resi
@@ -146,7 +151,7 @@ o test-src\SchemaDrivenNamesCorrectorTest.d : deps_dev test-src\SchemaDrivenName
 o test-src\SchemaDrivenNamesCorrectorTest.cmj test-src\SchemaDrivenNamesCorrectorTest.cmi ..\js\test-src\SchemaDrivenNamesCorrectorTest.bs.js : mij_dev test-src\SchemaDrivenNamesCorrectorTest.ast
 o src\SchemaDriven.ast : astj ..\..\src\SchemaDriven.res
 rule deps
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash f31e5610c5b6b128205188cc37752399 $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash 522be3da1fbbee40b151318f02afe248 $in
   restat = 1
 o src\SchemaDriven.d : deps src\SchemaDriven.ast src\SchemaDriven.iast
 o src\SchemaDriven.iast : astj ..\..\src\SchemaDriven.resi

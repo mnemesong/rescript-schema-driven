@@ -27,10 +27,11 @@ SchemaDrivenModifyModuleNamePlugin
 SchemaDrivenUnexpectedFilesStrategy
 src	
 1
-33
+34
 TestDict
 TestList
 TestArray
+OptionBool
 TestPerson
 TestTupleN
 TestProfile
@@ -62,4 +63,4 @@ SchemaDrivenUnknownTest
 TestVariantContainerTest
 SchemaDrivenNamesCorrectorTest
 _generated	_generated-test	test-schema	test-src	
-1
+1

@@ -32,6 +32,14 @@ let filterModuleTypes = (
   moduleTypes: resultCodeDeclar.moduleTypes->Js.Array2.filter(filter),
 }
 
+let editModuleTypes = (
+  resultCodeDeclar: resultCodeDeclar,
+  converter: string => string,
+): resultCodeDeclar => {
+  ...resultCodeDeclar,
+  moduleTypes: Array.map(resultCodeDeclar.moduleTypes, converter),
+}
+
 let addFuncs = (resultCodeDeclar: resultCodeDeclar, funcs: array<string>): resultCodeDeclar => {
   ...resultCodeDeclar,
   funcDeclars: funcs->Array.reduce(resultCodeDeclar.funcDeclars, (acc, f) => {

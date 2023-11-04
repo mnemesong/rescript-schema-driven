@@ -1,1 +1,1 @@
-test-schema\SchemaDrivenTest.cmj : src\SchemaDriven.cmj src\SchemaDriven.cmi src\SchemaDrivenRescriptStructPlugin.cmj src\SchemaDrivenRescriptStructPlugin.cmi
+test-schema\SchemaDrivenTest.cmj : src\SchemaDriven.cmj src\SchemaDriven.cmi src\SchemaDrivenModifyModuleNamePlugin.cmj src\SchemaDrivenModifyModuleNamePlugin.cmi src\SchemaDrivenRescriptStructPlugin.cmj src\SchemaDrivenRescriptStructPlugin.cmi
