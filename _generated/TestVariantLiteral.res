@@ -11,6 +11,8 @@ let struct: S.t<t> = S.union([
   S.literalVariant(String("Apple"), Apple)
 ])
 
+let allVariants = ["Banana","Orange","Apple"]
+
 let parse = (x) => x->S.parseWith(struct)
 ->SchemaDrivenRescriptStructPlugin.structErrToExn
 

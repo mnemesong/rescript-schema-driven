@@ -25,6 +25,8 @@ let struct: S.t<t> = S.union([
   })->S.Object.strip
 ])
 
+let allVariants = ["circle","square"]
+
 let parse = (x) => x->S.parseWith(struct)
 ->SchemaDrivenRescriptStructPlugin.structErrToExn
 

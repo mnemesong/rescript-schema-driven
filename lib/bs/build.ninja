@@ -6,7 +6,7 @@ rule astj
   command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsc.exe"  -bs-v 10.1.4 -open RescriptStruct -absname -bs-ast -o $out $i
 o _generated-test\TestDictTest.ast : astj ..\..\_generated-test\TestDictTest.res
 rule deps_dev
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash 8c35e5e48d2ed6d197736e84f0d6e88c $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -g -hash f31e5610c5b6b128205188cc37752399 $in
   restat = 1
 o _generated-test\TestDictTest.d : deps_dev _generated-test\TestDictTest.ast
 rule mij_dev
@@ -146,7 +146,7 @@ o test-src\SchemaDrivenNamesCorrectorTest.d : deps_dev test-src\SchemaDrivenName
 o test-src\SchemaDrivenNamesCorrectorTest.cmj test-src\SchemaDrivenNamesCorrectorTest.cmi ..\js\test-src\SchemaDrivenNamesCorrectorTest.bs.js : mij_dev test-src\SchemaDrivenNamesCorrectorTest.ast
 o src\SchemaDriven.ast : astj ..\..\src\SchemaDriven.res
 rule deps
-  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash 8c35e5e48d2ed6d197736e84f0d6e88c $in
+  command = "D:\rescript-projects\rescript-schema-driven\node_modules\rescript\win32\bsb_helper.exe" -hash f31e5610c5b6b128205188cc37752399 $in
   restat = 1
 o src\SchemaDriven.d : deps src\SchemaDriven.ast src\SchemaDriven.iast
 o src\SchemaDriven.iast : astj ..\..\src\SchemaDriven.resi
@@ -275,6 +275,11 @@ o src\SchemaDrivenRescriptStructPlugin.d : deps src\SchemaDrivenRescriptStructPl
 o src\SchemaDrivenRescriptStructPlugin.iast : astj ..\..\src\SchemaDrivenRescriptStructPlugin.resi
 o src\SchemaDrivenRescriptStructPlugin.cmi : mi src\SchemaDrivenRescriptStructPlugin.iast
 o src\SchemaDrivenRescriptStructPlugin.cmj ..\js\src\SchemaDrivenRescriptStructPlugin.bs.js : mj src\SchemaDrivenRescriptStructPlugin.ast src\SchemaDrivenRescriptStructPlugin.cmi
+o src\SchemaDrivenModifyModuleNamePlugin.ast : astj ..\..\src\SchemaDrivenModifyModuleNamePlugin.res
+o src\SchemaDrivenModifyModuleNamePlugin.d : deps src\SchemaDrivenModifyModuleNamePlugin.ast src\SchemaDrivenModifyModuleNamePlugin.iast
+o src\SchemaDrivenModifyModuleNamePlugin.iast : astj ..\..\src\SchemaDrivenModifyModuleNamePlugin.resi
+o src\SchemaDrivenModifyModuleNamePlugin.cmi : mi src\SchemaDrivenModifyModuleNamePlugin.iast
+o src\SchemaDrivenModifyModuleNamePlugin.cmj ..\js\src\SchemaDrivenModifyModuleNamePlugin.bs.js : mj src\SchemaDrivenModifyModuleNamePlugin.ast src\SchemaDrivenModifyModuleNamePlugin.cmi
 o src\SchemaDrivenUnexpectedFilesStrategy.ast : astj ..\..\src\SchemaDrivenUnexpectedFilesStrategy.res
 o src\SchemaDrivenUnexpectedFilesStrategy.d : deps src\SchemaDrivenUnexpectedFilesStrategy.ast src\SchemaDrivenUnexpectedFilesStrategy.iast
 o src\SchemaDrivenUnexpectedFilesStrategy.iast : astj ..\..\src\SchemaDrivenUnexpectedFilesStrategy.resi

@@ -17,3 +17,5 @@ let addFuncs: (resultCodeDeclar, array<string>) => resultCodeDeclar
 let printModuleBody: resultCodeDeclar => string
 
 let printModuleType: resultCodeDeclar => string
+
+let editModuleName: (resultCodeDeclar, string => string) => resultCodeDeclar

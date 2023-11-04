@@ -258,6 +258,18 @@ and api realization for its.
 For using add `SchemaDrivenRescriptStructPlugin.plugin` to engine's plugins array
 
 
+## SchemaDrivenModifyModuleNamePlugin.resi
+```rescript
+open SchemaDrivenPlugin
+
+//adds prefix to module name
+let prefixPlugin: string => schemaDrivenPlugin
+
+//adds postfix to module name
+let postfixPlugin: string => schemaDrivenPlugin
+```
+
+
 ## Plugins system and extensibility
 types codegeneration produces struct of type `resultCodeDeclar`:
 ```rescript

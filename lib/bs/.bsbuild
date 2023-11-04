@@ -1,4 +1,4 @@
-25
+26
 SchemaDriven
 SchemaDrivenInt
 SchemaDrivenBool
@@ -23,9 +23,10 @@ SchemaDrivenNamesCorrector
 SchemaDrivenVariantLiteral
 SchemaDrivenVariantContainer
 SchemaDrivenRescriptStructPlugin
+SchemaDrivenModifyModuleNamePlugin
 SchemaDrivenUnexpectedFilesStrategy
 src	
-1
+1
 33
 TestDict
 TestList

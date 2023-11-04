@@ -39,6 +39,14 @@ let addFuncs = (resultCodeDeclar: resultCodeDeclar, funcs: array<string>): resul
   }),
 }
 
+let editModuleName = (
+  resultCodeDeclar: resultCodeDeclar,
+  converter: string => string,
+): resultCodeDeclar => {
+  ...resultCodeDeclar,
+  moduleName: converter(resultCodeDeclar.moduleName),
+}
+
 let printModuleBody = (resultCodeDeclar: resultCodeDeclar): string =>
   [
     `type ${resultCodeDeclar.moduleName->modifyVariableName} = ${resultCodeDeclar.t}`,

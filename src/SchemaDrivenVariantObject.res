@@ -40,9 +40,20 @@ let printType = (variants: array<variant<array<field<schemaDrivenModule>>>>): st
   "\n" ++ variantRows->Js.Array2.joinWith("\n")
 }
 
+let allVariantsFunc = (variants: array<variant<array<field<schemaDrivenModule>>>>): string => {
+  let allNames = variants->Array.map(v => {
+    let Variant(name, _) = v
+    name
+  })
+  `let allVariants = ` ++ Js.Json.stringifyAny(allNames)->Option.getExn
+}
+
 let makeResultCode = (
   moduleName: string,
   variants: array<variant<array<field<schemaDrivenModule>>>>,
   tagName: string,
   strict: bool,
-): resultCodeDeclar => make(moduleName, printType(variants), printStruct(variants, tagName, strict))
+): resultCodeDeclar =>
+  make(moduleName, printType(variants), printStruct(variants, tagName, strict))
+  ->addFuncs([allVariantsFunc(variants)])
+  ->addModuleType("SchemaDrivenModule.SchemaDrivenVariantModule")

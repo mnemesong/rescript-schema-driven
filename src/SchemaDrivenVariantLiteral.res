@@ -17,5 +17,12 @@ let printType = (variants: array<string>): string => {
   "\n" ++ variantRows->Js.Array2.joinWith("\n")
 }
 
+let allVariantsFunc = (variants: array<string>): string => {
+  let allNames = variants
+  `let allVariants = ` ++ Js.Json.stringifyAny(allNames)->Option.getExn
+}
+
 let makeResultCode = (moduleName: string, variants: array<string>): resultCodeDeclar =>
   make(moduleName, printType(variants), printStruct(variants))
+  ->addFuncs([allVariantsFunc(variants)])
+  ->addModuleType("SchemaDrivenModule.SchemaDrivenVariantModule")

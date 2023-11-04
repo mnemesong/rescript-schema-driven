@@ -7,4 +7,5 @@ type testVariantObject =
       height: SchemaDrivenFloat.t
     })
 
+include SchemaDrivenModule.SchemaDrivenVariantModule
 include SchemaDrivenRescriptStructPlugin.ModuleType with type t = testVariantObject

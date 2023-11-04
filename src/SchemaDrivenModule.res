@@ -19,3 +19,7 @@ module type SchemaDrivenModule = {
 
   let struct: S.t<t>
 }
+
+module type SchemaDrivenVariantModule = {
+  let allVariants: array<string>
+}
