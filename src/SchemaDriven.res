@@ -21,11 +21,7 @@ let optionNull = (
   moduleName: string,
   t: schemaDrivenModule,
   engine: SchemaDrivenEngine.schemaDrivenEngine,
-) =>
-  SchemaDrivenOptionNull.makeResultCode(moduleName, t) |> SchemaDrivenEngine.printModule(
-    engine,
-    moduleName,
-  )
+) => SchemaDrivenOptionNull.makeResultCode(moduleName, t) |> SchemaDrivenEngine.printModule(engine)
 
 let record = (
   ~strict=false,
@@ -35,7 +31,6 @@ let record = (
 ) =>
   SchemaDrivenRecord.makeResultCode(moduleName, props, strict) |> SchemaDrivenEngine.printModule(
     engine,
-    moduleName,
   )
 
 let object = (
@@ -46,18 +41,13 @@ let object = (
 ) =>
   SchemaDrivenObject.makeResultCode(moduleName, props, strict) |> SchemaDrivenEngine.printModule(
     engine,
-    moduleName,
   )
 
 let tupleN = (
   moduleName: string,
   params: array<schemaDrivenModule>,
   engine: SchemaDrivenEngine.schemaDrivenEngine,
-) =>
-  SchemaDrivenTupleN.makeResultCode(moduleName, params) |> SchemaDrivenEngine.printModule(
-    engine,
-    moduleName,
-  )
+) => SchemaDrivenTupleN.makeResultCode(moduleName, params) |> SchemaDrivenEngine.printModule(engine)
 
 let tupleObject = (
   ~strict=false,
@@ -69,7 +59,7 @@ let tupleObject = (
     moduleName,
     types,
     strict,
-  ) |> SchemaDrivenEngine.printModule(engine, moduleName)
+  ) |> SchemaDrivenEngine.printModule(engine)
 
 let variantObject = (
   ~tagName="TAG",
@@ -83,7 +73,7 @@ let variantObject = (
     variants,
     tagName,
     strict,
-  ) |> SchemaDrivenEngine.printModule(engine, moduleName)
+  ) |> SchemaDrivenEngine.printModule(engine)
 
 let variantContainer = (
   ~tagName="TAG",
@@ -97,7 +87,7 @@ let variantContainer = (
     variants,
     tagName,
     strict,
-  ) |> SchemaDrivenEngine.printModule(engine, moduleName)
+  ) |> SchemaDrivenEngine.printModule(engine)
 
 let variantLiteral = (
   moduleName: string,
@@ -106,35 +96,22 @@ let variantLiteral = (
 ) =>
   SchemaDrivenVariantLiteral.makeResultCode(moduleName, variants) |> SchemaDrivenEngine.printModule(
     engine,
-    moduleName,
   )
 
 let array = (
   moduleName: string,
   t: schemaDrivenModule,
   engine: SchemaDrivenEngine.schemaDrivenEngine,
-) =>
-  SchemaDrivenArray.makeResultCode(moduleName, t) |> SchemaDrivenEngine.printModule(
-    engine,
-    moduleName,
-  )
+) => SchemaDrivenArray.makeResultCode(moduleName, t) |> SchemaDrivenEngine.printModule(engine)
 
 let list = (
   moduleName: string,
   t: schemaDrivenModule,
   engine: SchemaDrivenEngine.schemaDrivenEngine,
-) =>
-  SchemaDrivenList.makeResultCode(moduleName, t) |> SchemaDrivenEngine.printModule(
-    engine,
-    moduleName,
-  )
+) => SchemaDrivenList.makeResultCode(moduleName, t) |> SchemaDrivenEngine.printModule(engine)
 
 let dict = (
   moduleName: string,
   t: schemaDrivenModule,
   engine: SchemaDrivenEngine.schemaDrivenEngine,
-) =>
-  SchemaDrivenDict.makeResultCode(moduleName, t) |> SchemaDrivenEngine.printModule(
-    engine,
-    moduleName,
-  )
+) => SchemaDrivenDict.makeResultCode(moduleName, t) |> SchemaDrivenEngine.printModule(engine)

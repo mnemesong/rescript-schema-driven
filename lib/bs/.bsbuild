@@ -32,12 +32,12 @@ Publish
 TestDict
 TestList
 TestArray
-OptionBool
 TestPerson
 TestTupleN
 TestProfile
 TestDictTest
 TestListTest
+PreOptionBool
 TestArrayTest
 TestOptionInt
 TestOptionStr
@@ -64,4 +64,4 @@ SchemaDrivenUnknownTest
 TestVariantContainerTest
 SchemaDrivenNamesCorrectorTest
 _generated	_generated-test	test-schema	test-src	
-1
+1

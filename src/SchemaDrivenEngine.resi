@@ -19,7 +19,6 @@ let isRemoveOnMatch: schemaDrivenEngine => bool
 
 let printModule: (
   schemaDrivenEngine,
-  string,
   resultCodeDeclar,
 ) => result<SchemaDrivenModule.schemaDrivenModule, exn>
 

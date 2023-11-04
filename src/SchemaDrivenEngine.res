@@ -45,7 +45,7 @@ function (dir) {
 }
 `)
 
-let printModule = (eng: schemaDrivenEngine, moduleName: string, code: resultCodeDeclar): result<
+let printModule = (eng: schemaDrivenEngine, code: resultCodeDeclar): result<
   schemaDrivenModule,
   exn,
 > => {
@@ -54,10 +54,10 @@ let printModule = (eng: schemaDrivenEngine, moduleName: string, code: resultCode
     return require("path").resolve(...parts);
   }
   `)
-  let moduleName' = SchemaDrivenNamesCorrector.modifyModuleName(moduleName)
+  let resultCode = eng->plugins->Array.reduce(code, (acc, p) => p(acc))
+  let moduleName' = SchemaDrivenNamesCorrector.modifyModuleName(resultCode.moduleName)
   let moduleFilePath = ResultExn.tryExec(() => resolvePath([eng->path, moduleName' ++ ".res"]))
   let moduleTypePath = ResultExn.tryExec(() => resolvePath([eng->path, moduleName' ++ ".resi"]))
-  let resultCode = eng->plugins->Array.reduce(code, (acc, p) => p(acc))
   let moduleBody = resultCode->printModuleBody
   let moduleType = resultCode->printModuleType
   moduleFilePath
